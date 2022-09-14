@@ -9,6 +9,6 @@ namespace GameOfLife
 	public:
 		static void generateWorldFromImage(const std::string &path, std::vector<std::vector<int>> &world);
 	private:
-		static int loadImage(const std::string &filename);
+		static cv::Mat loadImage(const std::string &filename);
 	};
 }

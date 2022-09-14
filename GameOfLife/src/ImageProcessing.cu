@@ -3,12 +3,11 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
-class ImageProcessing
+namespace GameOfLife
 {
-public:
-	static void generateWorldFromImage(const std::string &path, std::vector<std::vector<int>> &world)
+	void ImageProcessing::generateWorldFromImage(const std::string &path, std::vector<std::vector<int>> &world)
 	{
-		cv::Mat image = LoadImage(path);
+		cv::Mat image = loadImage(path);
 		for(int i = 0; i < image.rows; i++)
 		{
 			for(int j = 0; j < image.cols; j++)
@@ -24,8 +23,8 @@ public:
 			}
 		}
 	}
-private:
-	static cv::Mat LoadImage(const std::string &filename)
+
+	cv::Mat ImageProcessing::loadImage(const std::string& filename)
 	{
 		cv::Mat image = imread(filename, cv::IMREAD_REDUCED_GRAYSCALE_8);// Read the file
 		std::cout << image.cols<< " " << image.rows << std::endl;
@@ -48,6 +47,7 @@ private:
 		cv::waitKey(0);
 		return image;
 	}
-};
+}
+
 
 
