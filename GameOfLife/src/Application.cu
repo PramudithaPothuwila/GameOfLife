@@ -9,7 +9,7 @@ std::vector<std::vector<int>> world; // 2D vector to store the world
 
 void Application::Application::init()
 {
-    cv::utils::logging::setLogLevel(cv::utils::logging::LogLevel::LOG_LEVEL_SILENT); // Disable OpenCV logging
+    setLogLevel(cv::utils::logging::LogLevel::LOG_LEVEL_SILENT); // Disable OpenCV logging
     int grid;
     std::cout << "Initializing application..." << std::endl;
     std::cout << "Enter the Grid: "; // Enter the grid size
