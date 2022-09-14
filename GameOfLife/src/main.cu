@@ -2,7 +2,7 @@
 
 int main()
 {
-	Application::Application::init();
-	Application::Application::run();
-	Application::Application::shutdown();
+	GameOfLife::Application::init();
+	GameOfLife::Application::run();
+	GameOfLife::Application::shutdown();
 }
