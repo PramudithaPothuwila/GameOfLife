@@ -2,7 +2,7 @@
 
 int main()
 {
-	Application::init();
-	Application::run();
-	Application::shutdown();
+	Application::Application::init();
+	Application::Application::run();
+	Application::Application::shutdown();
 }

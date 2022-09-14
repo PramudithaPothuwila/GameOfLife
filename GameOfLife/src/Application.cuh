@@ -2,8 +2,12 @@
 
 namespace Application
 {
-    void init();
-    int run();
-    void shutdown();
+    class Application
+    {
+    public:
+        static void init();
+        static int run();
+        static void shutdown();
+    };
 }
 

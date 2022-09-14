@@ -13,7 +13,6 @@ int ImageProcessing::LoadImage(const std::string &filename)
 		{
 			if(static_cast<double>(image.at<uchar>(i, j))/255 > 0.3)
 			{
-				//std::cout << (double)image.at<uchar>(i, j)/255 << std::endl;
 				image.at<uchar>(i, j) = 255;
 			}
 			else
@@ -23,7 +22,7 @@ int ImageProcessing::LoadImage(const std::string &filename)
 		}
 	}
 	
-	imshow("Display", image);
+	//imshow("Display", image);
 	cv::waitKey(0);
 	return 0;
 }
