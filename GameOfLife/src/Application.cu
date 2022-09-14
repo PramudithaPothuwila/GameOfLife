@@ -46,10 +46,30 @@ namespace GameOfLife
 			std::cout << "Invalid input. Exiting..." << std::endl;
 			exit(0);
 		}
+		
 	}
 
 	int Application::run()
 	{
+		int mode_of_operation;
+		std::cout << "Enter the mode of operation: 1 for CPU, 2 for GPU: ";
+		std::cin >> mode_of_operation;
+		
+		if(mode_of_operation == 1)
+		{
+			std::cout << "Running in CPU mode..." << std::endl;
+			runCPU();
+		}
+		else if(mode_of_operation == 2)
+		{
+			std::cout << "Running in GPU mode..." << std::endl;
+			runGPU();
+		}
+		else
+		{
+			std::cout << "Invalid input. Exiting..." << std::endl;
+			exit(0);
+		}
 		return 0;
 	}
 
