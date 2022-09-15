@@ -1,5 +1,4 @@
 ﻿#include "CPUComputeSingleThread.cuh"
-#include <thread>
 
 namespace GameOfLife
 {
