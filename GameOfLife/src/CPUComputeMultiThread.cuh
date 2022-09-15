@@ -3,13 +3,13 @@
 
 namespace GameOfLife
 {
-	class CpuComputeMultiThread
+	class CPUComputeMultiThread
 	{
 	public:
-		void Compute(std::vector<std::vector<int>> *world);
+		static void compute(std::vector<std::vector<int>> *world);
 	private:
-		void ComputeCell(std::vector<std::vector<int>> *worldSubSector, int x, int y);
-		void ThreadManager(std::vector<std::vector<int>> *world);
-		
+		static void computeCell(std::vector<std::vector<int>> *worldSubSector, int x, int y);
+		static void threadManager(std::vector<std::vector<int>> *world);
+		void worldSlicer(const std::vector<std::vector<int>> *world, int slices);
 	};
 }

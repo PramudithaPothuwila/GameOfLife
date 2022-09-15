@@ -4,6 +4,9 @@
 #include <vector>
 #include <opencv2/core/utils/logger.hpp>
 
+#include "CPUComputeMultiThread.cuh"
+#include "CPUComputeSingleThread.cuh"
+
 
 static std::vector<std::vector<int>> world; // 2D vector to store the world
 
@@ -58,10 +61,12 @@ namespace GameOfLife
 		if(mode_of_operation == 1)
 		{
 			std::cout << "Running in CPU-Single Thread Mode..." << std::endl;
+			CPUComputeSingleThread::Compute(&world);
 		}
 		else if(mode_of_operation == 2)
 		{
 			std::cout << "Running in CPU-MultiThread Mode..." << std::endl;
+			CPUComputeMultiThread::compute(&world);
 		}
 		else if(mode_of_operation == 3)
 		{
