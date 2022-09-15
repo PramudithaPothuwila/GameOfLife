@@ -1,14 +1,17 @@
-﻿#include "CPUCompute.cuh"
+﻿#include "CPUComputeSingleThread.cuh"
 #include <thread>
 
 namespace GameOfLife
 {
-	void CPUCompute::Compute(int *world)
+	void CPUComputeSingleThread::Compute(std::vector<std::vector<int>>  *world)
 	{
-		
+		while(true)
+		{
+			computeNextGeneration(world);
+		}
 	}
 
-	int CPUCompute::getNeighbours(const std::vector<std::vector<int>> *world, int x, int y)
+	int CPUComputeSingleThread::getNeighbours(const std::vector<std::vector<int>> *world, int x, int y)
 	{
 		int neighbours = 0;
 
@@ -32,7 +35,7 @@ namespace GameOfLife
 		return neighbours;
 	}
 
-	void CPUCompute::computeNextGeneration(std::vector<std::vector<int>> *world)
+	void CPUComputeSingleThread::computeNextGeneration(std::vector<std::vector<int>> *world)
 	{
 		const auto newWorld = new std::vector<std::vector<int>>(world->size(), std::vector<int>(world->size(), 0));
 		for(int i = 0; i < world->size(); i++)
@@ -54,6 +57,7 @@ namespace GameOfLife
 				}
 			}
 		}
-		memcpy(world, newWorld, sizeof *world);//sizeof(std::vector<std::vector<int>>));
+		free(world);
+		world = newWorld;
 	}
 }

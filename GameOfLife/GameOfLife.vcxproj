@@ -67,12 +67,12 @@
   </ItemGroup>
     <ItemGroup>
         <ClInclude Include="src\Application.cuh"/>
-        <ClInclude Include="src\CPUCompute.cuh"/>
+        <ClInclude Include="src\CPUComputeSingleThread.cuh"/>
         <ClInclude Include="src\ImageProcessing.cuh"/>
     </ItemGroup>
     <ItemGroup>
         <ClCompile Include="src\Application.cu"/>
-        <ClCompile Include="src\CPUCompute.cu"/>
+        <ClCompile Include="src\CPUComputeSingleThread.cu"/>
         <ClCompile Include="src\main.cu">
             <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
             <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
