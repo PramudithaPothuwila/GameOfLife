@@ -15,7 +15,7 @@ namespace GameOfLife
 		int grid;
 		int gen_method;
 		std::cout << "Initializing application..." << std::endl;
-		std::cout << "Enter the Grid: "; // Enter the grid size
+		std::cout << "Enter the Grid Size: "; // Enter the grid size
 		std::cin >> grid;
 		world.reserve(grid); // Reserve the size of the grid
 		std::cout << "If you want to generate a random world, enter 1. If you want to generate a world from a image, enter 2: ";
@@ -52,18 +52,20 @@ namespace GameOfLife
 	int Application::run()
 	{
 		int mode_of_operation;
-		std::cout << "Enter the mode of operation: 1 for CPU, 2 for GPU: ";
+		std::cout << "Enter the mode of operation: 1 for CPU-SingleThread, 2 for CPU-MultiThread, 3 for GPU: ";
 		std::cin >> mode_of_operation;
 		
 		if(mode_of_operation == 1)
 		{
-			std::cout << "Running in CPU mode..." << std::endl;
-			runCPU();
+			std::cout << "Running in CPU-Single Thread Mode..." << std::endl;
 		}
 		else if(mode_of_operation == 2)
 		{
+			std::cout << "Running in CPU-MultiThread Mode..." << std::endl;
+		}
+		else if(mode_of_operation == 3)
+		{
 			std::cout << "Running in GPU mode..." << std::endl;
-			runGPU();
 		}
 		else
 		{
