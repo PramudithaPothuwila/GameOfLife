@@ -67,11 +67,14 @@
   </ItemGroup>
     <ItemGroup>
         <ClInclude Include="src\Application.cuh"/>
+        <ClInclude Include="src\CPUComputeMultiThread.cuh"/>
         <ClInclude Include="src\CPUComputeSingleThread.cuh"/>
         <ClInclude Include="src\ImageProcessing.cuh"/>
+        <ClInclude Include="src\WorldGrid.cuh"/>
     </ItemGroup>
     <ItemGroup>
         <ClCompile Include="src\Application.cu"/>
+        <ClCompile Include="src\CPUComputeMultiThread.cu"/>
         <ClCompile Include="src\CPUComputeSingleThread.cu"/>
         <ClCompile Include="src\main.cu">
             <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
@@ -146,6 +149,7 @@
       <AdditionalIncludeDirectories>;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+        <ClCompile Include="src\WorldGrid.cu"/>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5ADF6E81-060E-4078-85C3-65550CB31040}</ProjectGuid>
