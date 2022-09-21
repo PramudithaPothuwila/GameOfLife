@@ -2,96 +2,90 @@
 
 namespace GameOfLife
 {
+	WorldGrid::WorldGrid(int width)
+	{
+		grid = new int[width * width];
+	}
+
 	WorldGrid::~WorldGrid()
 	{
-		for (auto worldrow : worldGrid)
-		{
-			worldrow.clear();
-		}
-		worldGrid.clear();
+		delete[] grid;
 	}
 
-	void WorldGrid::setWorldSize(int worldSize)
+	SuperSector::SuperSector(int x, int y)
 	{
-		this->worldSize = worldSize;
+		this->superSector = {0};
 	}
 
-	void WorldGrid::pushSectorToSectorSpace(Sector& sector)
+	SuperSector::~SuperSector()
 	{
-		worldSectors.push_back(sector);
+		delete[] superSector;
 	}
 
-	void WorldGrid::worldSlicer() const
+	void WorldGrid::setCell(const int x,const int y,const int value)
 	{
-		for(int outerX = 2; outerX < this->worldSize; outerX + 3)
-		{
-			for(int outerY = 2; outerY < this->worldSize; outerY + 3)
-			{
-				wGrid sector;
-				Sector tempSector;
-				for(int innerX = -2; innerX < 3; innerX++)
-				{
-					std::vector<int> row;
-					for(int innerY = -2; innerY < 3; innerY++)
-					{
-						switch(this->worldGrid.at(outerX + innerX).at(outerY + innerY))
-						{
-						case 0:
-							row.push_back(0);
-							break;
-						case 1:
-							row.push_back(1);
-							break;
-						default:
-							row.push_back(0);
-							break;
-						}
-					}
-					sector.push_back(row);
-					row.clear();
-				}
-				for(int i = 0; i < 5; i++)
-				{
-					for(int j; j < 5; j++)
-					{
-						tempSector.insertSector(i,j,sector.at(i).at(j));
-					}
-				}
-				sector.clear();
-				worldSectors.push_back(tempSector);
-			}
-		}
+		grid[y * gridWidth + x] = value;
 	}
 
-	Sector::Sector()
+	int WorldGrid::getCell(const int x,const int y)
+	{
+		return grid[y * gridWidth + x];
+	}
+	
+	int SuperSector::getCellState(const int &x,const int &y) const
+	{
+		return superSector[y*5+x];
+	}
+
+	void SuperSector::setCellState(const int& x, const int& y,const int state)
+	{
+		superSector[y*5+x] = state;
+	}
+
+	Sector::Sector(const int x,const int y) : SuperSector(x,y)
 	{
 		
 	}
-
-	int Sector::getNeigbourCount(int xCord, int yCord)
+	
+	int Sector::getNeighbors(const int& x, const int& y) const
 	{
+		int neighbors = 0;
+		for(int i = 0; i < 9; i++)
 		{
-			xCord++;
-			yCord++;
-			int count;
-			for(int i = -1; i < 2; i++)
+			if(i ==4)
+				continue;
+			neighbors = neighbors + getCellState(x + i % 3, y + i / 3);
+		}
+		return 0;
+	}
+
+	void Sector::updateCellState(const int x,const int y)
+	{
+		const int neighbors = getNeighbors(x, y);
+		if(getCellState(x, y) == 1)
+		{
+			if(neighbors < 2 || neighbors > 3)
 			{
-				for(int j = -1; j < 2; j++)
-				{
-					if(!(i == 0 && j == 0))
-					{
-						if(sectorOuterSpace[i+xCord][j+yCord] == 1)
-						{
-							count++;
-						}
-					}
-				}
+				setCellState(x, y, 0);
+			}
+		}
+		else
+		{
+			if(neighbors == 3)
+			{
+				setCellState(x, y, 1);
 			}
 		}
 	}
 
-	void Sector::insertSector(int xCord, int yCord, int value)
+	void Sector::computeSector()
 	{
-		this->sectorOuterSpace[xCord][yCord] = value;
+		for(int i = 0; i < 9; i++)
+		{
+			updateCellState(i % 3, i / 3);
+		}
 	}
+
+
+	
 }
