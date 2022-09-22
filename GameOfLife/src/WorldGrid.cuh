@@ -1,33 +1,47 @@
 ﻿#pragma once
-#include <vector>
+
 
 namespace GameOfLife
 {
 	class Sector;
-	typedef std::vector<std::vector<int>> wGrid;
 
 	class WorldGrid
 	{
+		int gridWidth;
+		int* grid;
 	public:
-		void setWorldSize(int worldSize);
-		void pushSectorToSectorSpace(Sector &worldRow);
-		void WorldGrid::worldSlicer() const;
-		~WorldGrid();
 		
-	private:
-		int worldSize;
-		wGrid worldGrid;
-		int subSectorCount;
-		std::vector<Sector> worldSectors;
+		WorldGrid(int width);
+		~WorldGrid();
+		void setCell(int x, int y, int value);
+		int getCell(int x, int y);
+		int getSectorCount();
+		int getWorldWidth();
+		
+		
 	};
-
-	class Sector
+	
+	class SuperSector
 	{
+		WorldGrid *worldGrid;
+		int superSector[25] = {0};
+		
+	protected:
+		int getCellState(const int &x,const int &y) const;
+		void setCellState(const int &x,const  int &y,const int state);
+
+	public:
+		SuperSector(int x, int y, WorldGrid world);
+		~SuperSector();
+	};
+	
+	class Sector : SuperSector
+	{
+		int getNeighbors(const int &x,const int &y) const;
+		void updateCellState(int x, int y);
 	public:
 		Sector();
-		int getNeigbourCount(int xCord, int yCord);
-		void Sector::insertSector(int xCord, int yCord, int value);
-	private:
-		int sectorOuterSpace[5][5] ={0};
+		Sector(int x, int y);
+		void computeSector();
 	};
 }
