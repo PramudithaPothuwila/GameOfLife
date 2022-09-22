@@ -1,4 +1,4 @@
-#include "Application.cuh"
+#include "Logic/Application.cuh"
 
 int main()
 {
