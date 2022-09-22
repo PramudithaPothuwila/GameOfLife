@@ -1,10 +1,12 @@
 #include "WorldGrid.cuh"
+#include <cmath>
 
 namespace GameOfLife
 {
 	WorldGrid::WorldGrid(int width)
 	{
 		grid = new int[width * width];
+		int sectorCount = pow(ceil(static_cast<double>(gridWidth) / 5),2);
 	}
 
 	WorldGrid::~WorldGrid()
@@ -12,24 +14,41 @@ namespace GameOfLife
 		delete[] grid;
 	}
 
-	SuperSector::SuperSector(int x, int y)
+	void WorldGrid::setCell(const int x,const int y,const int value)
 	{
-		this->superSector = {0};
+		grid[x * gridWidth + y] = value;
+	}
+
+	int WorldGrid::getCell(const int x,const int y)
+	{
+		return grid[x * gridWidth + y];
+	}
+
+	int WorldGrid::getSectorCount()
+	{
+		return pow(ceil(static_cast<double>(gridWidth) / 5),2);
+	}
+
+	int WorldGrid::getWorldWidth()
+	{
+		return gridWidth;
+	}
+	
+	SuperSector::SuperSector(const int x,const int y, WorldGrid world)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			for (int j = 0; j < 5; j++)
+			{
+				this->superSector[x+y*5] = world.getCell(x + i, y + j);
+			}
+		}
+		
 	}
 
 	SuperSector::~SuperSector()
 	{
 		delete[] superSector;
-	}
-
-	void WorldGrid::setCell(const int x,const int y,const int value)
-	{
-		grid[y * gridWidth + x] = value;
-	}
-
-	int WorldGrid::getCell(const int x,const int y)
-	{
-		return grid[y * gridWidth + x];
 	}
 	
 	int SuperSector::getCellState(const int &x,const int &y) const
@@ -41,7 +60,8 @@ namespace GameOfLife
 	{
 		superSector[y*5+x] = state;
 	}
-
+	
+	
 	Sector::Sector(const int x,const int y) : SuperSector(x,y)
 	{
 		
@@ -85,7 +105,4 @@ namespace GameOfLife
 			updateCellState(i % 3, i / 3);
 		}
 	}
-
-
-	
 }
