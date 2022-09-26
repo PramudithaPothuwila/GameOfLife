@@ -30,6 +30,9 @@
     <ClInclude Include="src\Logic\WorldGrid.cuh">
       <Filter>HeaderFiles</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameofLife.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="SourceFiles">
@@ -41,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="src\Logic\ImageProcessing.cu">
+      <Filter>SourceFiles</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\GameOfLife.cu">
       <Filter>SourceFiles</Filter>
     </CudaCompile>
   </ItemGroup>

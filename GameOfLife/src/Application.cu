@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <opencv2/core/utils/logger.hpp>
-#include "../GUI/GUI.cuh"
 #include "CPUComputeMultiThread.cuh"
 #include "CPUComputeSingleThread.cuh"
 
