@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{30395B5E-F4F2-4B95-96EB-36C3A4ADDB8F}</ProjectGuid>
+    <ProjectGuid>{517666ED-9727-46D8-BF57-2F851E305A2D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Application</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -109,6 +109,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,6 +147,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,7 +158,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Dependencies\include\imgui\imgui.cpp" />
+    <ClCompile Include="..\Dependencies\include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\Dependencies\include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Application.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Dependencies\include\imgui\imconfig.h" />
+    <ClInclude Include="..\Dependencies\include\imgui\imgui.h" />
+    <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="..\Dependencies\include\imgui\imgui_internal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

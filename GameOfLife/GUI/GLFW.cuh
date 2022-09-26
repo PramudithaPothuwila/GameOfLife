@@ -3,6 +3,9 @@
 namespace GameOfLife
 {
 	namespace GLFW
-	int run();
+	{
+		int run();
+	}
+	
 }
 

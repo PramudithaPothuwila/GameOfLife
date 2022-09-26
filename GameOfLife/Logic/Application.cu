@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <opencv2/core/utils/logger.hpp>
-
+#include "../GUI/GUI.cuh"
 #include "CPUComputeMultiThread.cuh"
 #include "CPUComputeSingleThread.cuh"
 
@@ -54,29 +54,7 @@ namespace GameOfLife
 
 	int Application::run()
 	{
-		int mode_of_operation;
-		std::cout << "Enter the mode of operation: 1 for CPU-SingleThread, 2 for CPU-MultiThread, 3 for GPU: ";
-		std::cin >> mode_of_operation;
-		
-		if(mode_of_operation == 1)
-		{
-			std::cout << "Running in CPU-Single Thread Mode..." << std::endl;
-			CPUComputeSingleThread::Compute(&world);
-		}
-		else if(mode_of_operation == 2)
-		{
-			std::cout << "Running in CPU-MultiThread Mode..." << std::endl;
-			CPUComputeMultiThread::compute(&world);
-		}
-		else if(mode_of_operation == 3)
-		{
-			std::cout << "Running in GPU mode..." << std::endl;
-		}
-		else
-		{
-			std::cout << "Invalid input. Exiting..." << std::endl;
-			exit(0);
-		}
+		//GUI::run();
 		return 0;
 	}
 

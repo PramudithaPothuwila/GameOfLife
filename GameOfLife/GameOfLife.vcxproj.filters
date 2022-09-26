@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\Logic\WorldGrid.cu">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Logic\CPUComputeSingleThread.cu">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Logic\CPUComputeMultiThread.cu">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Logic\Application.cu">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Logic\Application.cuh">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Logic\CPUComputeMultiThread.cuh">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Logic\CPUComputeSingleThread.cuh">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Logic\ImageProcessing.cuh">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Logic\WorldGrid.cuh">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="SourceFiles">
+      <UniqueIdentifier>{b112ec70-70a6-46d3-8d60-f93495ab17e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles">
+      <UniqueIdentifier>{e24ec155-c67e-4aa9-b5d1-f1da6c6f470e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="src\Logic\ImageProcessing.cu">
+      <Filter>SourceFiles</Filter>
+    </CudaCompile>
+  </ItemGroup>
+</Project>
