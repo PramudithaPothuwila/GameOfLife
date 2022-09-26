@@ -62,7 +62,7 @@ namespace GameOfLife
 	}
 	
 	
-	Sector::Sector(const int x,const int y) : SuperSector(x,y)
+	Sector::Sector(const int x,const int y, const WorldGrid world) : SuperSector(x,y, world)
 	{
 		
 	}

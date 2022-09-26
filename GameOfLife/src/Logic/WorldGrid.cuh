@@ -41,7 +41,7 @@ namespace GameOfLife
 		void updateCellState(int x, int y);
 	public:
 		Sector();
-		Sector(int x, int y);
+		Sector(int x, int y,, const WorldGrid world);
 		void computeSector();
 	};
 }

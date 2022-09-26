@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GUI\GLFW.cuh"/>
     <ClInclude Include="src\Logic\Application.cuh"/>
     <ClInclude Include="src\Logic\CPUComputeMultiThread.cuh"/>
     <ClInclude Include="src\Logic\CPUComputeSingleThread.cuh"/>
@@ -18,6 +19,7 @@
     <ClInclude Include="src\Logic\WorldGrid.cuh"/>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GUI\GLFW.cu"/>
     <ClCompile Include="src\Logic\Application.cu">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -418,33 +420,31 @@
       <BuildDynamicCommandLineTemplate>[CodeGeneration]</BuildDynamicCommandLineTemplate>
       <CleanCommandLineTemplate>-clean</CleanCommandLineTemplate>
       <HostCommandLineTemplate>-Xcompiler "/EHsc [Warning] /nologo [Optimization] [ProgramDataBaseFileName] /FS [DebugInformationFormat] [RuntimeChecks] [Runtime] [TypeInfo]"</HostCommandLineTemplate>
-      <DriverApiCommandLineTemplate>-ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [Defines] [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\ImageProcessing.cu"</DriverApiCommandLineTemplate>
-      <RuntimeApiCommandLineTemplate>-ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [HostDebugInfo] [Emulation] [Defines] -Xcompiler "/EHsc [Warning] /nologo [Optimization] [ProgramDataBaseFileName] /FS [DebugInformationFormat] [RuntimeChecks] [Runtime] [TypeInfo]" [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\ImageProcessing.cu"</RuntimeApiCommandLineTemplate>
+      <DriverApiCommandLineTemplate>-ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [Defines] [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\Logic\ImageProcessing.cu"</DriverApiCommandLineTemplate>
+      <RuntimeApiCommandLineTemplate>-ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [HostDebugInfo] [Emulation] [Defines] -Xcompiler "/EHsc [Warning] /nologo [Optimization] [ProgramDataBaseFileName] /FS [DebugInformationFormat] [RuntimeChecks] [Runtime] [TypeInfo]" [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\Logic\ImageProcessing.cu"</RuntimeApiCommandLineTemplate>
       <CommandLineTemplate>
         # (Approximate command-line. Settings inherited from host are not visible below.)
         # (Please see the output window after a build for the full command-line)
 
         # Driver API (NVCC Compilation Type is .cubin, .gpu, or .ptx)
         set CUDAFE_FLAGS=--sdk_dir "C:\Program Files (x86)\Windows Kits\10\"
-        "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\bin\nvcc.exe" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [Defines] [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\ImageProcessing.cu"
+        "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\bin\nvcc.exe" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [Defines] [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\Logic\ImageProcessing.cu"
 
         # Runtime API (NVCC Compilation Type is hybrid object or .c file)
         set CUDAFE_FLAGS=--sdk_dir "C:\Program Files (x86)\Windows Kits\10\"
-        "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\bin\nvcc.exe" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [HostDebugInfo] [Emulation] [Defines] -Xcompiler "/EHsc [Warning] /nologo [Optimization] [ProgramDataBaseFileName] /FS [DebugInformationFormat] [RuntimeChecks] [Runtime] [TypeInfo]" [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\ImageProcessing.cu"
+        "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\bin\nvcc.exe" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64" -x cu [GenerateRelocatableDeviceCode] [ExtensibleWholeProgramCompilation] [Include] [RequiredIncludes] [InterleaveSourceInPTX] [GPUDebugInfo] [GenerateLineInfo] [Keep] [KeepDir] [FastMath] [MaxRegCount] [PtxAsOptionV] [TargetMachinePlatform] [NvccCompilation] [CudaRuntime] [AdditionalOptions] [HostDebugInfo] [Emulation] [Defines] -Xcompiler "/EHsc [Warning] /nologo [Optimization] [ProgramDataBaseFileName] /FS [DebugInformationFormat] [RuntimeChecks] [Runtime] [TypeInfo]" [CompileOut] "C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src\Logic\ImageProcessing.cu"
       </CommandLineTemplate>
-      <ExecutionDescription>Compiling CUDA source file src\ImageProcessing.cu...</ExecutionDescription>
-      <ExclusionDescription>Skipping CUDA source file src\ImageProcessing.cu (excluded from build).</ExclusionDescription>
+      <ExecutionDescription>Compiling CUDA source file src\Logic\ImageProcessing.cu...</ExecutionDescription>
+      <ExclusionDescription>Skipping CUDA source file src\Logic\ImageProcessing.cu (excluded from build).</ExclusionDescription>
       <PropsCacheOutputFile>ImageProcessing.cu.cache</PropsCacheOutputFile>
       <PropsCacheOutputPath>x64\Debug\ImageProcessing.cu.cache</PropsCacheOutputPath>
       <CudaCompileCoreProject>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\GameOfLife.vcxproj</CudaCompileCoreProject>
     </CudaCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\GUI"/>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5ADF6E81-060E-4078-85C3-65550CB31040}</ProjectGuid>
     <RootNamespace>GameOfLife</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -473,12 +473,12 @@
   <PropertyGroup Label="UserMacros"/>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)packages\opencv\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)packages\opencv\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\imgui\include;$(SolutionDir)Dependencies\opencv\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib;$(SolutionDir)Dependencies\opencv\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)packages\opencv\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)packages\opencv\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\imgui\include;$(SolutionDir)Dependencies\opencv\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib;$(SolutionDir)Dependencies\opencv\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -486,11 +486,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_world460d.lib;;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_world460d.lib;glfw3.lib;opengl32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
@@ -504,13 +505,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_world460d.lib;opencv_world460d.dll;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_world460d.lib;glfw3.lib;opengl32.lib;opencv_world460d.dll;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
