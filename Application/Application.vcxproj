@@ -317,7 +317,8 @@
       <AdditionalIncludeDirectories>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src;C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\Dependencies\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="src\gui.cpp"/>
+    <ClCompile Include="src\renderer.cpp"/>
+    <ClCompile Include="src\ui.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Dependencies\include\imgui\imconfig.h"/>
@@ -330,7 +331,8 @@
     <ClInclude Include="..\Dependencies\include\imgui\imstb_textedit.h"/>
     <ClInclude Include="..\Dependencies\include\imgui\imstb_truetype.h"/>
     <ClInclude Include="src\Application.h"/>
-    <ClInclude Include="src\gui.h"/>
+    <ClInclude Include="src\renderer.h"/>
+    <ClInclude Include="src\ui.h"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameOfLife\GameOfLife.vcxproj">
