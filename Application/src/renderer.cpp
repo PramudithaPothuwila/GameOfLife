@@ -1,3 +1,4 @@
+#include "GL/glew.h"
 #include "renderer.h"
 #include <iostream>
 
@@ -20,6 +21,11 @@ namespace Application
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
         glfwMakeContextCurrent(window);
+
+
+        glewInit();
+
+        
         glfwSwapInterval(1);
 
         IMGUI_CHECKVERSION();
@@ -50,7 +56,7 @@ namespace Application
 
             userInterface.displayUI(); //Display Interface
             
-            //ImGui::ShowDemoWindow();
+            ImGui::ShowDemoWindow();
 
             ImGui::Render();
             int display_w, display_h;
@@ -67,6 +73,12 @@ namespace Application
 
     int Renderer_OpenGl::shutdown()
     {
+        ImGui_ImplOpenGL3_Shutdown();
+        ImGui_ImplGlfw_Shutdown();
+        ImGui::DestroyContext();
+
+        glfwDestroyWindow(window);
+        glfwTerminate();
         return 0;
     }
 

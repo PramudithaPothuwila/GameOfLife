@@ -175,7 +175,6 @@
     <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp"/>
     <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp"/>
     <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp"/>
-    <ClCompile Include="src\ApplicationConfig.cpp"/>
     <ClCompile Include="src\main.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -338,7 +337,6 @@
     <ClInclude Include="..\Dependencies\include\imgui\imstb_textedit.h"/>
     <ClInclude Include="..\Dependencies\include\imgui\imstb_truetype.h"/>
     <ClInclude Include="src\Application.h"/>
-    <ClInclude Include="src\ApplicationConfig.h"/>
     <ClInclude Include="src\renderer.h"/>
     <ClInclude Include="src\ui.h"/>
   </ItemGroup>

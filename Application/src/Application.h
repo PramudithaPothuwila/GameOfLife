@@ -1,6 +1,6 @@
 #pragma once
 
-#define RENDERER 1
+#define OPENGL 
 
 #include <cstdio>
 
@@ -12,10 +12,12 @@
 
 namespace Application
 {
-#ifdef RENDERER 0
+#ifdef OPENGL
 	inline Renderer* renderer = new Renderer_OpenGl();
-#else
+#elif VULKAN
 	inline Renderer* renderer = new Renderer_Vulkan();
+#else
+	inline Renderer* renderer = new Renderer_OpenGl();
 #endif
 	int init();
 	int run();
