@@ -48,10 +48,7 @@
     <ClCompile Include="src\renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ApplicationConfig.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FileHandler.cpp">
+    <ClCompile Include="src\ComputeCPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,10 +89,7 @@
     <ClInclude Include="src\renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ApplicationConfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\FileHandler.h">
+    <ClInclude Include="src\ComputeCPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

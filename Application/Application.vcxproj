@@ -175,6 +175,7 @@
     <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp"/>
     <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp"/>
     <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp"/>
+    <ClCompile Include="src\ComputeCPU.cpp"/>
     <ClCompile Include="src\main.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -325,6 +326,7 @@
     </ClCompile>
     <ClCompile Include="src\renderer.cpp"/>
     <ClCompile Include="src\ui.cpp"/>
+    <ClCompile Include="src\WorldGrid.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Dependencies\include\imgui\imconfig.h"/>
@@ -337,8 +339,10 @@
     <ClInclude Include="..\Dependencies\include\imgui\imstb_textedit.h"/>
     <ClInclude Include="..\Dependencies\include\imgui\imstb_truetype.h"/>
     <ClInclude Include="src\Application.h"/>
+    <ClInclude Include="src\ComputeCPU.h"/>
     <ClInclude Include="src\renderer.h"/>
     <ClInclude Include="src\ui.h"/>
+    <ClInclude Include="src\WorldGrid.h"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameOfLife\GameOfLife.vcxproj">
