@@ -1,42 +1,38 @@
 #pragma once
 
 #include <thread>
-
 #include "WorldGrid.h"
+#include <iostream>
+#include <vector>
 
+enum System_State
+{
+	INIT,
+	RUN,
+	SHUTDOWN
+};
+
+enum Cell_State
+{
+	DEAD,
+	ALIVE
+};
 
 namespace GameOfLife
 {
-	
-	enum System_State
-	{
-		RUN,
-		SHUTDOWN
-	};
-
-	enum Cell_State
-	{
-		DEAD,
-		ALIVE
-	};
-
 	class ThreadManager
 	{
 	private:
-		static WorldGrid* world_grid;
-		static WorldGrid* world_buffer;
-		static System_State SYSTEM_STATE;
+		WorldGrid* world_grid;
+		WorldGrid* world_buffer;
+		System_State SYSTEM_STATE;
 	public:
-		const static unsigned int processor_count_ = std::thread::hardware_concurrency();
-		static void init(int width);
-		static void run();
-		static void shutdown();
-	};
-
-	class Thread
-	{
-	public:
-		void Thread::run(WorldGrid* world_grid, WorldGrid* world_buffer,int startingPoint);
+		ThreadManager(WorldGrid *world_grid);
+		~ThreadManager();
+		void init(WorldGrid* world_grid);
+		void run();
+		void shutdown();
 	};
 	
+	void ThreadWork(WorldGrid* world_grid, WorldGrid* world_buffer,int startingPoint);
 }
