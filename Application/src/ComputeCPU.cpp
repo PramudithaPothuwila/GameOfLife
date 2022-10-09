@@ -35,10 +35,22 @@ namespace GameOfLife
 	{
 		for(int i = startingPoint; i < startingPoint + (world_grid->getWorldSize()/ ThreadManager::processor_count_); i++)
 		{
-			for(int j = 0; j < 9; j++)
+			int xCord = i % world_grid->getWorldWidth();
+			int yCord = i / world_grid->getWorldWidth();
+			int aliveNeighbours = 0;
+			for(int j = -1; j < 2; j++)
 			{
-				int aliveNeighbours = 0;
-				
+				for(int k = -1; k < 2; k++)
+				{
+					if(j == 0 && k == 0)
+					{
+						continue;
+					}
+					if(world_grid->getCell(xCord + j, yCord + k) == ALIVE)
+					{
+						aliveNeighbours++;
+					}
+				}
 			}
 		}
 	}

@@ -3,6 +3,6 @@
 
 int main()
 {
-	Application::init();
-	Application::run();
+	//Application::init();
+	//Application::run();
 }
