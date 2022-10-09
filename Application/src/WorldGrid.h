@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-
 namespace GameOfLife
 {
 	class Sector;
@@ -8,15 +7,15 @@ namespace GameOfLife
 	class WorldGrid
 	{
 		int gridWidth;
-		int* grid;
+		bool* grid;
 	public:
-		
-		WorldGrid(int width);
+		explicit WorldGrid(int width);
 		~WorldGrid();
-		void setCell(int x, int y, int value);
-		int getCell(int x, int y);
-		int getSectorCount();
+		void setCell(int x, int y, bool value);
+		bool getCell(int x, int y);
 		int getWorldWidth();
 		int getWorldSize();
+		void swap(WorldGrid* world_grid);
+		void print();
 	};
 }

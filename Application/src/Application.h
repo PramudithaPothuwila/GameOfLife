@@ -10,6 +10,16 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "renderer.h"
 
+enum System_State
+{
+	INIT,
+	RUNNING,
+	SHUTDOWN
+};
+
+System_State SYSTEM_STATE;
+
+
 namespace Application
 {
 #ifdef OPENGL
@@ -18,7 +28,7 @@ namespace Application
 	inline Renderer* renderer = new Renderer_Vulkan();
 #else
 	inline Renderer* renderer = new Renderer_OpenGl();
-#endif
+#endif	
 	int init();
 	int run();
 }

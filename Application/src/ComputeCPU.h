@@ -1,16 +1,9 @@
 #pragma once
 
-#include <thread>
 #include "WorldGrid.h"
+#include <thread>
 #include <iostream>
 #include <vector>
-
-enum System_State
-{
-	INIT,
-	RUN,
-	SHUTDOWN
-};
 
 enum Cell_State
 {
@@ -20,19 +13,19 @@ enum Cell_State
 
 namespace GameOfLife
 {
+	
 	class ThreadManager
 	{
 	private:
-		WorldGrid* world_grid;
-		WorldGrid* world_buffer;
-		System_State SYSTEM_STATE;
+		WorldGrid* world_grid{};
+		WorldGrid* world_buffer{};
 	public:
 		ThreadManager(WorldGrid *world_grid);
 		~ThreadManager();
 		void init(WorldGrid* world_grid);
 		void run();
-		void shutdown();
+		void shutdown() const;
 	};
 	
-	void ThreadWork(WorldGrid* world_grid, WorldGrid* world_buffer,int startingPoint);
+	void ThreadWork(WorldGrid* world_grid, WorldGrid* world_buffer,int starting_point);
 }

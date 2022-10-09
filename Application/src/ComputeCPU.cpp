@@ -1,4 +1,5 @@
 #include "ComputeCPU.h"
+#include "Application.h"
 
 namespace GameOfLife
 {
@@ -6,11 +7,12 @@ namespace GameOfLife
 		
 	void ThreadWork(WorldGrid* world_grid, WorldGrid* world_buffer, int startingPoint)
 	{
-		for(int i = startingPoint; i < startingPoint + world_grid->getWorldSize()/ processor_count; i++)
+		for(int i = startingPoint; i < startingPoint + world_grid->getWorldSize() / processor_count; i++)
 		{
-			int xCord = i % world_grid->getWorldWidth();
-			int yCord = i / world_grid->getWorldWidth();
-			int aliveNeighbours = 0;
+			const int x_cord = i % world_grid->getWorldWidth();
+			const int y_cord = i / world_grid->getWorldWidth();
+			
+			int alive_neighbours = 0;
 			for(int j = -1; j < 2; j++)
 			{
 				for(int k = -1; k < 2; k++)
@@ -19,68 +21,55 @@ namespace GameOfLife
 					{
 						continue;
 					}
-					if(world_grid->getCell(xCord + j, yCord + k) == ALIVE)
+					if(world_grid->getCell(x_cord + j, y_cord + k) == ALIVE)
 					{
-						aliveNeighbours++;
+						alive_neighbours++;
 					}
 				} 
 			}
-			if(aliveNeighbours == 3)
-			{
-				world_buffer->setCell(xCord, yCord, ALIVE);
-			}
-			else if(aliveNeighbours == 2)
-			{
-				world_buffer->setCell(xCord, yCord, world_grid->getCell(xCord, yCord));
-			}
-			else
-			{
-				world_buffer->setCell(xCord, yCord, DEAD);
-			}
+			if(alive_neighbours == 3) world_buffer->setCell(x_cord, y_cord, ALIVE);
+			else if(alive_neighbours == 2) world_buffer->setCell(x_cord, y_cord, world_grid->getCell(x_cord, y_cord));
+			else world_buffer->setCell(x_cord, y_cord, DEAD);
 		}
 	}
 	
-	void ThreadManager::init(WorldGrid* worldgrid)
-	{
-		world_grid = worldgrid;
-		world_buffer = new WorldGrid(world_grid->getWorldWidth());
-		SYSTEM_STATE = RUN;
-	}
 
 	ThreadManager::ThreadManager(WorldGrid* world_grid)
 	{
 		SYSTEM_STATE = INIT;
 		init(world_grid);
 	}
+
+	void ThreadManager::init(WorldGrid* _world_grid)
+	{
+		SYSTEM_STATE = RUNNING;
+		world_grid = _world_grid;
+		world_buffer = new WorldGrid(world_grid->getWorldWidth());
+	}
 	
 	void ThreadManager::run()
 	{
-		int cycles = 0;
-		while(SYSTEM_STATE == RUN)
+		while(SYSTEM_STATE == RUNNING)
 		{
-			std::thread *threads = new std::thread[GameOfLife::processor_count];
-			for(int i = 0; i < GameOfLife::processor_count; i++)
-			{
-				int startingPoint = i*(world_grid->getWorldSize()/GameOfLife::processor_count);
-				threads[i] = std::thread(ThreadWork, world_grid, world_buffer, startingPoint);
-			}
-			for(int i = 0; i < GameOfLife::processor_count; i++)
-			{
-				threads[i].join();
-			}
+			const auto threads = new std::thread[processor_count];
+			
+			// Initializing threads
+			//int starting_point = i*(world_grid->getWorldSize()/processor_count)); <- This is the starting point for each thread. This was used in the previous version of the code. Now inlined
+			for(int i = 0; i < processor_count; i++) threads[i] = std::thread(ThreadWork, world_grid, world_buffer, i*(world_grid->getWorldSize()/processor_count));
+			
+			// Joining threads
+			for(int i = 0; i < processor_count; i++) threads[i].join();
+
+			// Swap the buffers and threads clean up
 			delete[] threads;
-			//world_grid->Print();
 			delete world_grid;
-
 			world_grid = world_buffer;
-
 			delete world_buffer;
-
 			world_buffer = new WorldGrid(world_grid->getWorldWidth());
 		}
 	}
 
-	void ThreadManager::shutdown()
+	void ThreadManager::shutdown() const
 	{
 		SYSTEM_STATE = SHUTDOWN;
 		delete world_grid;
