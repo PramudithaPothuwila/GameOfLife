@@ -51,6 +51,8 @@ namespace GameOfLife
 	}
 
 	// Added for testing purposes
+	// TODO: Move console rendering to a separate entity
+	
 	void WorldGrid::print()
 	{
 		std::string frame;
