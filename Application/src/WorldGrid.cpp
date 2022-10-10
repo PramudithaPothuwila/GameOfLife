@@ -60,7 +60,7 @@ namespace GameOfLife
 		{
 			for (int j = 0; j < getWorldWidth(); j++)
 			{
-				std::string cell = getCell(i, j) ? "1" : "0";
+				std::string cell = getCell(i, j) ? "X" : " ";
 				frame.append(cell);
 				frame.append(" ");
 			}
