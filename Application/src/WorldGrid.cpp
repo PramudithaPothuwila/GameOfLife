@@ -1,7 +1,7 @@
 ﻿#include "WorldGrid.h"
 #include <cmath>
 #include <iostream>
-#include <ostream>
+#include <thread>
 
 namespace GameOfLife
 {
@@ -15,7 +15,6 @@ namespace GameOfLife
 			{
 				setCell(i, j, false);
 			}
-			std::cout << std::endl;
 		}
 	}
 
@@ -51,15 +50,23 @@ namespace GameOfLife
 		return gridWidth;
 	}
 
+	// Added for testing purposes
 	void WorldGrid::print()
 	{
+		std::string frame;
 		for (int i = 0; i < getWorldWidth(); i++)
 		{
 			for (int j = 0; j < getWorldWidth(); j++)
 			{
-				std::cout << getCell(i, j) << " ";
+				std::string cell = getCell(i, j) ? "1" : "0";
+				frame.append(cell);
+				frame.append(" ");
 			}
-			std::cout << std::endl;
+			frame.append("\n");
 		}
+		std::cout << frame;
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+		system("CLS");
+		
 	}
 }

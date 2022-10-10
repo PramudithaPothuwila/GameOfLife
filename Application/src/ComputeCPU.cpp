@@ -1,5 +1,5 @@
 #include "ComputeCPU.h"
-#include "Application.h"
+
 
 namespace GameOfLife
 {
@@ -59,12 +59,11 @@ namespace GameOfLife
 			
 			// Joining threads
 			for(int i = 0; i < processor_count; i++) threads[i].join();
-
+			world_grid->print();
 			// Swap the buffers and threads clean up
 			delete[] threads;
 			delete world_grid;
 			world_grid = world_buffer;
-			delete world_buffer;
 			world_buffer = new WorldGrid(world_grid->getWorldWidth());
 		}
 	}

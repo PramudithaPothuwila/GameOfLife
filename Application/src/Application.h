@@ -17,8 +17,7 @@ enum System_State
 	SHUTDOWN
 };
 
-System_State SYSTEM_STATE;
-
+inline System_State SYSTEM_STATE;
 
 namespace Application
 {
