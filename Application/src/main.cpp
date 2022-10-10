@@ -15,18 +15,21 @@ int main()
 	std::cout << sizeof(bool) << std::endl;
 	for(int i = 0; i < gridSize; i++)
 	{
-		if(i != 0)
+		if(i == 0 || i == 6)
+		{
+			for (int j = 0; j < gridSize; j++)
+			{
+				grid->setCell(i, j, true);
+			}
+		}
+		else
 		{
 			for (int j = 0; j < gridSize; j++)
 			{
 				grid->setCell(i, j, false);
 			}
-			continue;
 		}
-		for (int j = 0; j < gridSize; j++)
-		{
-			grid->setCell(i, j, true);
-		}
+		
 	}
 	GameOfLife::ThreadManager *thread_manager = new GameOfLife::ThreadManager(grid);
 	thread_manager->run();
