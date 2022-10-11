@@ -98,6 +98,9 @@
     <ClInclude Include="src\WorldGrid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SystemState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />

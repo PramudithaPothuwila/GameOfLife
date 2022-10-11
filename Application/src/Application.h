@@ -10,15 +10,6 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "renderer.h"
 
-enum System_State
-{
-	INIT,
-	RUNNING,
-	SHUTDOWN
-};
-
-inline System_State SYSTEM_STATE;
-
 namespace Application
 {
 #ifdef OPENGL
@@ -30,4 +21,5 @@ namespace Application
 #endif	
 	int init();
 	int run();
+	int shutdown();
 }

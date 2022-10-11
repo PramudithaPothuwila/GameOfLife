@@ -5,19 +5,16 @@ namespace Application
 {
 	int init()
 	{
-		renderer->init();
-		return 1;
+		return 0;
 	}
 
 	int run()
 	{
-		renderer->start();
-		return 1;
+		return 0;
 	}
 
 	int shutdown()
 	{
-		renderer->shutdown();
 		return 0;
 	}
 }

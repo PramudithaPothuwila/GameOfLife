@@ -1,17 +1,10 @@
 #pragma once
 #include <string>
 
+#include "SystemState.h"
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 
-// enum GPU_System_State
-// {
-// 	GPU_INIT,
-// 	GPU_RUNNING,
-// 	GPU_SHUTDOWN
-// };
-// // Global variable
-// GPU_System_State GPU_SYSTEM_STATE;
 
 namespace Cuda_Runtime
 {

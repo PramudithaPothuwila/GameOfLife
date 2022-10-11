@@ -1,5 +1,7 @@
 #include "ComputeCPU.h"
 
+#include "SystemState.h"
+
 
 namespace GameOfLife
 {
@@ -36,20 +38,20 @@ namespace GameOfLife
 
 	ThreadManager::ThreadManager(WorldGrid* world_grid)
 	{
-		SYSTEM_STATE = INIT;
+		CPU_STATE = INIT;
 		init(world_grid);
 	}
 
 	void ThreadManager::init(WorldGrid* _world_grid)
 	{
-		SYSTEM_STATE = RUNNING;
+		CPU_STATE = RUNNING;
 		world_grid = _world_grid;
 		world_buffer = new WorldGrid(world_grid->getWorldWidth());
 	}
 	
 	void ThreadManager::run()
 	{
-		while(SYSTEM_STATE == RUNNING)
+		while(CPU_STATE == RUNNING)
 		{
 			const auto threads = new std::thread[processor_count];
 			
@@ -70,7 +72,7 @@ namespace GameOfLife
 
 	void ThreadManager::shutdown() const
 	{
-		SYSTEM_STATE = SHUTDOWN;
+		CPU_STATE = SHUTDOWN;
 		delete world_grid;
 		delete world_buffer;
 	}

@@ -9,9 +9,10 @@ int main()
 {
 	//Application::init();
 	//Application::run();
+	//Application::shutdown();
 	
 	//Temporary for testing
-	int gridSize = 1024;
+	int gridSize = 75;
 	
 	const auto grid = new GameOfLife::WorldGrid(gridSize);
 	for(int i = 0; i < gridSize; i++)
