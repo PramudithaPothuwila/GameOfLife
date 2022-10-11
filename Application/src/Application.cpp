@@ -1,6 +1,7 @@
 #include "Application.h"
 
 #include "ComputeCPU.h"
+#include "CudaRuntime.cuh"
 #include "SystemState.h"
 
 
@@ -20,17 +21,20 @@ namespace Application
 		{
 		case CPU_SINGLE_THREAD:
 			{
+				thread_manager = new GameOfLife::ThreadManager(GRID);
 				thread_manager->run();
 				break;
 			}
 		case CPU_MULTI_THREAD:
 			{
-				// Run multi threaded
+				thread_manager = new GameOfLife::ThreadManager(GRID);
+				thread_manager->run();
 				break;
 			}
 		case GPU_CUDA:
 			{
-				// Run single threaded
+				auto *compute_gpu = new Cuda_Runtime::ComputeGPU(GRID_WIDTH, GRID->getGrid());
+				compute_gpu->run();
 				break;
 			}
 		}
