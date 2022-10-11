@@ -1,9 +1,11 @@
 #include "ComputeCPU.h"
 
+#include "SystemState.h"
+
 
 namespace GameOfLife
 {
-	unsigned int processor_count = std::thread::hardware_concurrency() / 2;
+	unsigned int processor_count;
 		
 	void ThreadWork(WorldGrid* world_grid, WorldGrid* world_buffer, int startingPoint)
 	{
@@ -12,7 +14,7 @@ namespace GameOfLife
 			const int x_cord = i % world_grid->getWorldWidth();
 			const int y_cord = i / world_grid->getWorldWidth();
 			
-			int alive_neighbours = 0;
+			int alive_neighbours = 0; 
 			for(int j = -1; j < 2; j++)
 			{
 				for(int k = -1; k < 2; k++)
@@ -36,20 +38,29 @@ namespace GameOfLife
 
 	ThreadManager::ThreadManager(WorldGrid* world_grid)
 	{
-		SYSTEM_STATE = INIT;
+		CPU_STATE = INIT;
 		init(world_grid);
 	}
 
 	void ThreadManager::init(WorldGrid* _world_grid)
 	{
-		SYSTEM_STATE = RUNNING;
+		CPU_STATE = RUNNING;
+		switch(MODE)
+		{
+		case CPU_SINGLE_THREAD:
+			processor_count = 1;
+			break;
+		case CPU_MULTI_THREAD:
+			processor_count = std::thread::hardware_concurrency();
+			break;
+		}
 		world_grid = _world_grid;
 		world_buffer = new WorldGrid(world_grid->getWorldWidth());
 	}
 	
 	void ThreadManager::run()
 	{
-		while(SYSTEM_STATE == RUNNING)
+		while(CPU_STATE == RUNNING)
 		{
 			const auto threads = new std::thread[processor_count];
 			
@@ -70,7 +81,7 @@ namespace GameOfLife
 
 	void ThreadManager::shutdown() const
 	{
-		SYSTEM_STATE = SHUTDOWN;
+		CPU_STATE = SHUTDOWN;
 		delete world_grid;
 		delete world_buffer;
 	}
