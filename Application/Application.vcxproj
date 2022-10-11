@@ -76,25 +76,25 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;$(LibraryPath);$(SolutionDir)Dependencies\lib</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;$(LibraryPath);$(SolutionDir)Dependencies\lib</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -358,7 +358,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Cuda_Runtime\Cuda_Runtime.vcxproj">
       <Project>{a3715974-64e3-4a54-beae-21da3714bf62}</Project>
-      <Name>Cuda_Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>

@@ -15,7 +15,7 @@ namespace GameOfLife
 		bool getCell(int x, int y);
 		int getWorldWidth();
 		int getWorldSize();
-		void swap(WorldGrid* world_grid);
+		bool* getGrid();
 		void print();
 	};
 }
