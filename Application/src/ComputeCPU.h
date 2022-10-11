@@ -1,6 +1,7 @@
 #pragma once
 
 #include "WorldGrid.h"
+#include "Application.h"
 #include <thread>
 #include <iostream>
 #include <vector>

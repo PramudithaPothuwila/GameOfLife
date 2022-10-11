@@ -9,23 +9,23 @@ int main()
 	//Application::run();
 	
 	//Temporary for testing
-	const auto grid = new GameOfLife::WorldGrid(100);
+	int gridSize = 50;
+	
+	const auto grid = new GameOfLife::WorldGrid(gridSize);
 	std::cout << sizeof(bool) << std::endl;
-	for(int i = 0; i < 100; i++)
+	for(int i = 0; i < gridSize; i++)
 	{
 		if(i != 0)
 		{
-			for (int j = 0; j < 100; j++)
+			for (int j = 0; j < gridSize; j++)
 			{
 				grid->setCell(i, j, false);
 			}
+			continue;
 		}
-		else
+		for (int j = 0; j < gridSize; j++)
 		{
-			for (int j = 0; j < 100; j++)
-			{
-				grid->setCell(i, j, true);
-			}
+			grid->setCell(i, j, true);
 		}
 	}
 	GameOfLife::ThreadManager *thread_manager = new GameOfLife::ThreadManager(grid);
