@@ -1,9 +1,5 @@
 #include "Application.h"
 #include "ComputeCPU.h"
-#include "CudaRuntime.cuh"
-#include "WorldGrid.h"
-#include <ostream>
-
 
 int main()
 {
@@ -30,8 +26,7 @@ int main()
 	// 		grid->setCell(i, j, true);
 	// 	}
 	// }
-	// // GameOfLife::ThreadManager *thread_manager = new GameOfLife::ThreadManager(grid);
-	// // thread_manager->run();
+	
 	//
 	// auto compute = new Cuda_Runtime::ComputeGPU(grid->getWorldWidth(),grid->getGrid());
 	// compute->init();

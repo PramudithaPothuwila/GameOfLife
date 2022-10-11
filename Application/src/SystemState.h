@@ -1,4 +1,6 @@
 #pragma once
+#include "WorldGrid.h"
+
 enum State
 {
 	INIT,
@@ -20,3 +22,5 @@ static State GPU_STATE;
 static Mode MODE;
 
 static int GRID_WIDTH;
+static int GRID_TYPE; // 0 = randomly generated grid, 1 = grid from image file
+static GameOfLife::WorldGrid *GRID;
