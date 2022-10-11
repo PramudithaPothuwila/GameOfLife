@@ -34,6 +34,7 @@ namespace Application
 		case GPU_CUDA:
 			{
 				auto *compute_gpu = new Cuda_Runtime::ComputeGPU(GRID_WIDTH, GRID->getGrid());
+				compute_gpu->init();
 				compute_gpu->run();
 				break;
 			}
