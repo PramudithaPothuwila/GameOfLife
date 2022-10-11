@@ -1,4 +1,6 @@
-﻿#include "WorldGeneration.h"
+#include "WorldGeneration.h"
+#include <cstdlib>
+#include "SystemState.h"
 
 namespace Application
 {
@@ -13,7 +15,7 @@ namespace Application
 			}
 		}		
 	}
-
+  
 	void generateFromImage(const std::string &path)
 	{
 		GRID = new GameOfLife::WorldGrid(GRID_WIDTH);

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <cstdlib>
 #include "ImageProcessing.h"
 #include "SystemState.h"
