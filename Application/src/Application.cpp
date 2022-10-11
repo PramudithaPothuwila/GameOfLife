@@ -1,10 +1,13 @@
 #include "Application.h"
+#include "SystemState.h"
 
 
 namespace Application
 {
 	int init()
 	{
+		SYSTEM_STATE = INIT;
+		ConsoleUI::printMenu();
 		return 0;
 	}
 

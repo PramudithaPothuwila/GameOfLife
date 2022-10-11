@@ -3,6 +3,7 @@
 #define OPENGL 
 
 #include <cstdio>
+#include "ConsoleUI.h"
 
 #include <GLFW/glfw3.h>
 #include "imgui/imgui.h"
@@ -18,7 +19,7 @@ namespace Application
 	inline Renderer* renderer = new Renderer_Vulkan();
 #else
 	inline Renderer* renderer = new Renderer_OpenGl();
-#endif	
+#endif
 	int init();
 	int run();
 	int shutdown();
