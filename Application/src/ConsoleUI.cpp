@@ -1,6 +1,5 @@
-﻿
-#include "ConsoleUI.h"
-
+﻿#include "ConsoleUI.h"
+#include "WorldGeneration.h"
 
 namespace Application
 {
@@ -34,7 +33,7 @@ namespace Application
 			std::cout << "Invalid mode selected, defaulting to CPU single thread mode" << std::endl;
 			break;
 		}
-
+		
 		std::cout << "Available world grids types:" << std::endl;
 		std::cout << "1. Generate random grid" << std::endl;
 		std::cout << "2. Generate grid from image file" << std::endl;
@@ -44,11 +43,13 @@ namespace Application
 		{
 		case 1:
 			std::cout << "World grid is randomly generated" << std::endl;
-			// Add random world generation code here 
+			generateRandomWorld();
 			break;
 		case 2:
 			std::cout << "Enter path for image for world generation:";
-			// Add world generation from image code here
+			std::string image_path;
+			std::cin >> image_path;
+			generateFromImage(image_path);
 			break;
 		}
 	}

@@ -113,7 +113,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,7 +132,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+        <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -178,36 +178,36 @@
       <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-      <ClCompile Include="..\Dependencies\include\imgui\imgui.cpp"/>
-      <ClCompile Include="..\Dependencies\include\imgui\imgui_demo.cpp"/>
-      <ClCompile Include="..\Dependencies\include\imgui\imgui_draw.cpp"/>
-      <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_glfw.cpp"/>
-      <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp"/>
-      <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp"/>
-      <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp"/>
-      <ClCompile Include="src\ComputeCPU.cpp"/>
-      <ClCompile Include="src\ConsoleUI.cpp"/>
-      <ClCompile Include="src\main.cpp">
-          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-          <Optimization>Disabled</Optimization>
-          <SupportJustMyCode>true</SupportJustMyCode>
-          <AssemblerOutput>NoListing</AssemblerOutput>
-          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-          <BrowseInformation>false</BrowseInformation>
-          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-      <CompileAs>Default</CompileAs>
-      <ConformanceMode>true</ConformanceMode>
-      <DiagnosticsFormat>Column</DiagnosticsFormat>
-      <DisableLanguageExtensions>false</DisableLanguageExtensions>
-      <ErrorReporting>Prompt</ErrorReporting>
-      <ExpandAttributedSource>false</ExpandAttributedSource>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <EnableASAN>false</EnableASAN>
-      <EnableFuzzer>false</EnableFuzzer>
-      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+    <ItemGroup>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_demo.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_draw.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_glfw.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp"/>
+        <ClCompile Include="src\ComputeCPU.cpp"/>
+        <ClCompile Include="src\ConsoleUI.cpp"/>
+        <ClCompile Include="src\main.cpp">
+            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+            <Optimization>Disabled</Optimization>
+            <SupportJustMyCode>true</SupportJustMyCode>
+            <AssemblerOutput>NoListing</AssemblerOutput>
+            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+            <BrowseInformation>false</BrowseInformation>
+            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+            <CompileAs>Default</CompileAs>
+            <ConformanceMode>true</ConformanceMode>
+            <DiagnosticsFormat>Column</DiagnosticsFormat>
+            <DisableLanguageExtensions>false</DisableLanguageExtensions>
+            <ErrorReporting>Prompt</ErrorReporting>
+            <ExpandAttributedSource>false</ExpandAttributedSource>
+            <ExceptionHandling>Sync</ExceptionHandling>
+            <EnableASAN>false</EnableASAN>
+            <EnableFuzzer>false</EnableFuzzer>
+            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <FloatingPointModel>Precise</FloatingPointModel>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
@@ -316,16 +316,16 @@
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <SmallerTypeCheck>false</SmallerTypeCheck>
       <SpectreMitigation>false</SpectreMitigation>
-      <StructMemberAlignment>Default</StructMemberAlignment>
-      <TrackerLogDirectory>x64\Debug\Application.tlog\</TrackerLogDirectory>
-      <TranslateIncludes>false</TranslateIncludes>
-      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <UseFullPaths>true</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+        <StructMemberAlignment>Default</StructMemberAlignment>
+        <TrackerLogDirectory>x64\Debug\Application.tlog\</TrackerLogDirectory>
+        <TranslateIncludes>false</TranslateIncludes>
+        <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+        <TreatWarningAsError>false</TreatWarningAsError>
+        <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+        <UseFullPaths>true</UseFullPaths>
+        <WarningLevel>Level3</WarningLevel>
+        <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+        <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
         <IntelJCCErratum>false</IntelJCCErratum>
         <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
         <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
@@ -336,11 +336,11 @@
         <AdditionalIncludeDirectories>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src;C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\Dependencies\include;</AdditionalIncludeDirectories>
         <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-      <ClCompile Include="src\renderer.cpp"/>
-      <ClCompile Include="src\ui.cpp"/>
-      <ClCompile Include="src\WorldGeneration.cpp"/>
-      <ClCompile Include="src\WorldGrid.cpp"/>
-  </ItemGroup>
+        <ClCompile Include="src\renderer.cpp"/>
+        <ClCompile Include="src\ui.cpp"/>
+        <ClCompile Include="src\WorldGeneration.cpp"/>
+        <ClCompile Include="src\WorldGrid.cpp"/>
+    </ItemGroup>
     <ItemGroup>
         <ClInclude Include="..\Dependencies\include\imgui\imconfig.h"/>
         <ClInclude Include="..\Dependencies\include\imgui\imgui.h"/>
