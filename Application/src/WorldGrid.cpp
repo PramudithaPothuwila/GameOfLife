@@ -50,7 +50,14 @@ namespace GameOfLife
 		return gridWidth;
 	}
 
+	bool* WorldGrid::getGrid()
+	{
+		return grid;
+	}
+
 	// Added for testing purposes
+	// TODO: Move console rendering to a separate entity
+	
 	void WorldGrid::print()
 	{
 		std::string frame;
@@ -58,7 +65,7 @@ namespace GameOfLife
 		{
 			for (int j = 0; j < getWorldWidth(); j++)
 			{
-				std::string cell = getCell(i, j) ? "1" : "0";
+				std::string cell = getCell(i, j) ? "X" : " ";
 				frame.append(cell);
 				frame.append(" ");
 			}
