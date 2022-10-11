@@ -1,12 +1,7 @@
 ﻿#include "WorldGeneration.h"
-#include <cstdlib>
-
-#include "SystemState.h"
 
 namespace Application
 {
-	
-
 	void generateRandomWorld()
 	{
 		GRID = new GameOfLife::WorldGrid(GRID_WIDTH);
@@ -19,9 +14,9 @@ namespace Application
 		}		
 	}
 
-	void generateWorldFromImage()
+	void generateFromImage(const std::string &path)
 	{
 		GRID = new GameOfLife::WorldGrid(GRID_WIDTH);
-		
+		ImageProcessing::generateWorldFromImage(path);
 	}
 }
