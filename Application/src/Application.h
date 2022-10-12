@@ -3,21 +3,13 @@
 #define OPENGL 
 
 #include <cstdio>
+#include "ConsoleUI.h"
 
 #include <GLFW/glfw3.h>
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_opengl3.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "renderer.h"
-
-enum System_State
-{
-	INIT,
-	RUNNING,
-	SHUTDOWN
-};
-
-inline System_State SYSTEM_STATE;
 
 namespace Application
 {
@@ -27,7 +19,8 @@ namespace Application
 	inline Renderer* renderer = new Renderer_Vulkan();
 #else
 	inline Renderer* renderer = new Renderer_OpenGl();
-#endif	
+#endif
 	int init();
 	int run();
+	int shutdown();
 }

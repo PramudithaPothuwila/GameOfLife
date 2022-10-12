@@ -5,6 +5,6 @@
 ### Mode of Operation
   - CPU Single Thread
   - CPU Multi Thread
-  - GPU
-
-Currently the GPU mode is not working. CPU modes are working fine.
+  - GPU CUDA
+  
+Currently only Console Interface available.   

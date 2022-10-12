@@ -76,25 +76,25 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;$(LibraryPath);$(SolutionDir)Dependencies\lib</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(CUDAToolkit_ROOT)\lib\x64;$(SolutionDir)Dependencies\include;C:\Packages\boost_1_80_0\stage\lib;$(LibraryPath);$(SolutionDir)Dependencies\lib</LibraryPath>
-    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src</IncludePath>
+    <IncludePath>$(IncludePath);$(SolutionDir)Cuda_Runtime\src;$(CUDAToolkit_ROOT)\include;</IncludePath>
     <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -107,11 +107,13 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)Cuda_Runtime\src;C:\Packages\boost_1_80_0;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,11 +127,12 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)Cuda_Runtime\src;C:\Packages\boost_1_80_0;C:\VulkanSDK\1.3.216.0\Include;$(SolutionDir)GameOfLife\src;$(SolutionDir)Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+        <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -175,35 +178,36 @@
       <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Dependencies\include\imgui\imgui.cpp"/>
-    <ClCompile Include="..\Dependencies\include\imgui\imgui_demo.cpp"/>
-    <ClCompile Include="..\Dependencies\include\imgui\imgui_draw.cpp"/>
-    <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_glfw.cpp"/>
-    <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp"/>
-    <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp"/>
-    <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp"/>
-    <ClCompile Include="src\ComputeCPU.cpp"/>
-    <ClCompile Include="src\main.cpp">
-      <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <Optimization>Disabled</Optimization>
-      <SupportJustMyCode>true</SupportJustMyCode>
-      <AssemblerOutput>NoListing</AssemblerOutput>
-      <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-      <BrowseInformation>false</BrowseInformation>
-      <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-      <CompileAs>Default</CompileAs>
-      <ConformanceMode>true</ConformanceMode>
-      <DiagnosticsFormat>Column</DiagnosticsFormat>
-      <DisableLanguageExtensions>false</DisableLanguageExtensions>
-      <ErrorReporting>Prompt</ErrorReporting>
-      <ExpandAttributedSource>false</ExpandAttributedSource>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <EnableASAN>false</EnableASAN>
-      <EnableFuzzer>false</EnableFuzzer>
-      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+    <ItemGroup>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_demo.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_draw.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_glfw.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp"/>
+        <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp"/>
+        <ClCompile Include="src\ComputeCPU.cpp"/>
+        <ClCompile Include="src\ConsoleUI.cpp"/>
+        <ClCompile Include="src\main.cpp">
+            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+            <Optimization>Disabled</Optimization>
+            <SupportJustMyCode>true</SupportJustMyCode>
+            <AssemblerOutput>NoListing</AssemblerOutput>
+            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+            <BrowseInformation>false</BrowseInformation>
+            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+            <CompileAs>Default</CompileAs>
+            <ConformanceMode>true</ConformanceMode>
+            <DiagnosticsFormat>Column</DiagnosticsFormat>
+            <DisableLanguageExtensions>false</DisableLanguageExtensions>
+            <ErrorReporting>Prompt</ErrorReporting>
+            <ExpandAttributedSource>false</ExpandAttributedSource>
+            <ExceptionHandling>Sync</ExceptionHandling>
+            <EnableASAN>false</EnableASAN>
+            <EnableFuzzer>false</EnableFuzzer>
+            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <FloatingPointModel>Precise</FloatingPointModel>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
@@ -312,56 +316,63 @@
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <SmallerTypeCheck>false</SmallerTypeCheck>
       <SpectreMitigation>false</SpectreMitigation>
-      <StructMemberAlignment>Default</StructMemberAlignment>
-      <TrackerLogDirectory>x64\Debug\Application.tlog\</TrackerLogDirectory>
-      <TranslateIncludes>false</TranslateIncludes>
-      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <UseFullPaths>true</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <IntelJCCErratum>false</IntelJCCErratum>
-      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src;C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\Dependencies\include;</AdditionalIncludeDirectories>
-      <LinkCompiled>true</LinkCompiled>
+        <StructMemberAlignment>Default</StructMemberAlignment>
+        <TrackerLogDirectory>x64\Debug\Application.tlog\</TrackerLogDirectory>
+        <TranslateIncludes>false</TranslateIncludes>
+        <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+        <TreatWarningAsError>false</TreatWarningAsError>
+        <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+        <UseFullPaths>true</UseFullPaths>
+        <WarningLevel>Level3</WarningLevel>
+        <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+        <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+        <IntelJCCErratum>false</IntelJCCErratum>
+        <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+        <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+        <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+        <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+        <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+        <SDLCheck>true</SDLCheck>
+        <AdditionalIncludeDirectories>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src;C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\Dependencies\include;</AdditionalIncludeDirectories>
+        <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="src\renderer.cpp"/>
-    <ClCompile Include="src\ui.cpp"/>
-    <ClCompile Include="src\WorldGrid.cpp"/>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Dependencies\include\imgui\imconfig.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imgui.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_glfw.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_opengl3.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_opengl3_loader.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imgui_internal.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imstb_rectpack.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imstb_textedit.h"/>
-    <ClInclude Include="..\Dependencies\include\imgui\imstb_truetype.h"/>
-    <ClInclude Include="src\Application.h"/>
-    <ClInclude Include="src\ComputeCPU.h"/>
-    <ClInclude Include="src\renderer.h"/>
-    <ClInclude Include="src\ui.h"/>
-    <ClInclude Include="src\WorldGrid.h"/>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgui.ini"/>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cuda_Runtime\Cuda_Runtime.vcxproj">
-      <Project>{a3715974-64e3-4a54-beae-21da3714bf62}</Project>
-      <Name>Cuda_Runtime</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+        <ClCompile Include="src\renderer.cpp"/>
+        <ClCompile Include="src\ui.cpp"/>
+        <ClCompile Include="src\WorldGeneration.cpp"/>
+        <ClCompile Include="src\WorldGrid.cpp"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ClInclude Include="..\Dependencies\include\imgui\imconfig.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imgui.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_glfw.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_opengl3.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_opengl3_loader.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imgui_internal.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imstb_rectpack.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imstb_textedit.h"/>
+        <ClInclude Include="..\Dependencies\include\imgui\imstb_truetype.h"/>
+        <ClInclude Include="src\Application.h"/>
+        <ClInclude Include="src\ComputeCPU.h"/>
+        <ClInclude Include="src\ConsoleUI.h"/>
+        <ClInclude Include="src\ImageProcessing.h"/>
+        <ClInclude Include="src\renderer.h"/>
+        <ClInclude Include="src\SystemState.h"/>
+        <ClInclude Include="src\ui.h"/>
+        <ClInclude Include="src\WorldGeneration.h"/>
+        <ClInclude Include="src\WorldGrid.h"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="imgui.ini"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cuda_Runtime\Cuda_Runtime.vcxproj">
+            <Project>{a3715974-64e3-4a54-beae-21da3714bf62}</Project>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <ClCompile Include="src\ImageProcessing.cpp"/>
+    </ItemGroup>
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+    <ImportGroup Label="ExtensionTargets">
+    </ImportGroup>
 </Project>

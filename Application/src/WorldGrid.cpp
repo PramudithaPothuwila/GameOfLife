@@ -50,6 +50,11 @@ namespace GameOfLife
 		return gridWidth;
 	}
 
+	bool* WorldGrid::getGrid()
+	{
+		return grid;
+	}
+
 	// Added for testing purposes
 	// TODO: Move console rendering to a separate entity
 	
