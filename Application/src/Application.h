@@ -20,6 +20,7 @@ namespace Application
 #else
 	inline Renderer* renderer = new Renderer_OpenGl();
 #endif
+
 	int init();
 	int run();
 	int shutdown();

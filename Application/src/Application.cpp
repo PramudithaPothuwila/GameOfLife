@@ -7,6 +7,24 @@
 
 namespace Application
 {
+	// int init()
+	// {
+	// 	renderer->init();
+	// 	return 0;
+	// }
+	//
+	// int run()
+	// {
+	// 	renderer->start();
+	// 	return 0;
+	// }
+	//
+	// int shutdown()
+	// {
+	// 	renderer->shutdown();
+	// 	return 0;
+	// }
+
 	GameOfLife::ThreadManager *thread_manager;
 	int init()
 	{
@@ -14,7 +32,7 @@ namespace Application
 		ConsoleUI::printMenu();
 		return 0;
 	}
-
+	
 	int run()
 	{
 		switch(MODE)
@@ -41,7 +59,7 @@ namespace Application
 		}
 		return 0;
 	}
-
+	
 	int shutdown()
 	{
 		return 0;

@@ -2,8 +2,7 @@
 #include <string>
 
 #include "SystemState.h"
-#include "cuda_runtime.h"
-#include "device_launch_parameters.h"
+
 
 
 namespace Cuda_Runtime

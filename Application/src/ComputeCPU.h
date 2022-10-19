@@ -18,8 +18,8 @@ namespace GameOfLife
 	class ThreadManager
 	{
 	private:
-		WorldGrid* world_grid{};
-		WorldGrid* world_buffer{};
+		WorldGrid* world_grid;
+		WorldGrid* world_buffer	;
 	public:
 		ThreadManager(WorldGrid *world_grid);
 		~ThreadManager();
