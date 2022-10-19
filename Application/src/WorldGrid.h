@@ -2,8 +2,6 @@
 
 namespace GameOfLife
 {
-	class Sector;
-
 	class WorldGrid
 	{
 		int gridWidth;
@@ -16,6 +14,7 @@ namespace GameOfLife
 		int getWorldWidth();
 		int getWorldSize();
 		bool* getGrid();
+		void update_world(bool* newGrid);
 		void print();
 	};
 }

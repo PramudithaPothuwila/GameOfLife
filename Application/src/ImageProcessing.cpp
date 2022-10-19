@@ -1,5 +1,4 @@
 ﻿#include "ImageProcessing.h"
-#include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
@@ -11,9 +10,11 @@ namespace Application
 	void ImageProcessing::generateWorldFromImage(const std::string &path)
 	{
 		cv::Mat image = loadImage(path);
-		for(int i = 0; i < image.rows; i++)
+		const int rows = image.rows < GRID_WIDTH ? image.rows : GRID_WIDTH;
+		const int cols = image.cols < GRID_WIDTH ? image.cols : GRID_WIDTH;
+		for(int i = 0; i <  rows; i++)
 		{
-			for(int j = 0; j < image.cols; j++)
+			for(int j = 0; j < cols; j++)
 			{
 				if(image.at<uchar>(i, j) == 255)
 				{
