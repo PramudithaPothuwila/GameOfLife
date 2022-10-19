@@ -73,7 +73,7 @@ namespace GameOfLife
 			world_grid->print();
 			// Swap the buffers and threads clean up
 			delete[] threads;
-			delete world_grid;
+			//delete world_grid;
 			world_grid = world_buffer;
 			world_buffer = new WorldGrid(world_grid->getWorldWidth());
 		}

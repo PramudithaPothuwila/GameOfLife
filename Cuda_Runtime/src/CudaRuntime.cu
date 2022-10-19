@@ -4,6 +4,8 @@
  #include <iostream>
  #include <string>
  #include <thread>
+#include "cuda_runtime.h"
+#include "device_launch_parameters.h"
 
 
  namespace Cuda_Runtime
