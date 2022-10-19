@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-## Conway's Game of Life implemented with C++ and CUDA 11.7
+## Conway's Game of Life implemented with C++ VS 2022 and CUDA 11.8
 
 ### Mode of Operation
   - CPU Single Thread
@@ -10,6 +10,8 @@
 Currently only Console Interface available.   
 
 ## Usage
-- Clone and build the repository
-- Add opencv 4.6 opencv_world460.dll to application root
+- Install CUDA 11.8
+- Clone and build the repository.
+- Download OpenCV 4.6 (opencv-4.6.0-vc14_vc15.exe) from https://github.com/opencv/opencv/releases/tag4.6.0
+- Extract files and copy opencv_world460.dll in opencv\build\x64\vc15\bin to Application Root
 - Run application
