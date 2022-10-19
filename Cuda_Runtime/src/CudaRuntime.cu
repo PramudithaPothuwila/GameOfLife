@@ -63,25 +63,7 @@
 
         GPU_STATE = RUNNING;
  	}
-
- 	void print(int width, bool *buffer)
- 	{
- 		std::string frame;
- 		for (int i = 0; i < width; i++)
- 		{
- 			for (int j = 0; j < width; j++)
- 			{
- 				std::string cell = buffer[i * width + j] ? "X" : " ";
- 				frame.append(cell);
- 				frame.append(" ");
- 			}
- 			frame.append("\n");
- 		}
- 		std::cout << frame;
- 		std::this_thread::sleep_for(std::chrono::milliseconds(20));
- 		system("CLS");
- 	}
-
+ 	
  	void ComputeGPU::run()
  	{
  		while(GPU_STATE == RUNNING)
@@ -89,7 +71,8 @@
  			compute <<< world_width, world_width >>>(primary_device_world_buffer, secondary_device_world_buffer, world_width);
  			cudaMemcpy(host_world_buffer, secondary_device_world_buffer, buffer_size,cudaMemcpyDeviceToHost);
  			cudaMemcpy(primary_device_world_buffer, secondary_device_world_buffer, buffer_size,cudaMemcpyDeviceToDevice);
- 			print(world_width, host_world_buffer);
+ 			GRID->update_world(host_world_buffer);
+ 			GRID->print();
  		}
  	}
 

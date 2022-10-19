@@ -113,7 +113,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,7 +132,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460.lib;%(AdditionalDependencies)</AdditionalDependencies>
+        <AdditionalDependencies>cudart.lib;opengl32.lib;glfw3.lib;glew32s.lib;opencv_world460d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,14 +160,14 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+        <Optimization>MaxSpeed</Optimization>
+        <FunctionLevelLinking>true</FunctionLevelLinking>
+        <IntrinsicFunctions>true</IntrinsicFunctions>
+        <SDLCheck>true</SDLCheck>
+        <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <ConformanceMode>true</ConformanceMode>
+        <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+        <LanguageStandard>stdcpp17</LanguageStandard>
         <AdditionalIncludeDirectories>$(SolutionDir)Cuda_Runtime\src;C:\Packages\boost_1_80_0;C:\VulkanSDK\1.3.216.0\Include;$(SolutionDir)GameOfLife\src;$(SolutionDir)Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
       <Link>
@@ -218,16 +218,16 @@
             <IntrinsicFunctions>false</IntrinsicFunctions>
             <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
             <LanguageStandard>stdcpp17</LanguageStandard>
-      <LanguageStandard_C>Default</LanguageStandard_C>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-      <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-      <OmitDefaultLibName>false</OmitDefaultLibName>
-      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <ObjectFileName>x64\Debug\</ObjectFileName>
-      <CallingConvention>Cdecl</CallingConvention>
-      <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+            <LanguageStandard_C>Default</LanguageStandard_C>
+            <MinimalRebuild>false</MinimalRebuild>
+            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+            <OmitDefaultLibName>false</OmitDefaultLibName>
+            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+            <WholeProgramOptimization>false</WholeProgramOptimization>
+            <ObjectFileName>x64\Debug\</ObjectFileName>
+            <CallingConvention>Cdecl</CallingConvention>
+            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>x64\Debug\Application.pch</PrecompiledHeaderOutputFile>
@@ -296,16 +296,16 @@
       <MinimalRebuild>false</MinimalRebuild>
       <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
       <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-      <OmitDefaultLibName>false</OmitDefaultLibName>
-      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <ObjectFileName>x64\Debug\</ObjectFileName>
-      <CallingConvention>Cdecl</CallingConvention>
-      <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>x64\Debug\Application.pch</PrecompiledHeaderOutputFile>
-      <PreprocessToFile>false</PreprocessToFile>
+        <OmitDefaultLibName>false</OmitDefaultLibName>
+        <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+        <WholeProgramOptimization>false</WholeProgramOptimization>
+        <ObjectFileName>x64\Debug\</ObjectFileName>
+        <CallingConvention>Cdecl</CallingConvention>
+        <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+        <PrecompiledHeader>NotUsing</PrecompiledHeader>
+        <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+        <PrecompiledHeaderOutputFile>x64\Debug\Application.pch</PrecompiledHeaderOutputFile>
+        <PreprocessToFile>false</PreprocessToFile>
         <PreprocessKeepComments>false</PreprocessKeepComments>
         <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
         <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
@@ -371,6 +371,10 @@
     </ItemGroup>
     <ItemGroup>
         <ClCompile Include="src\ImageProcessing.cpp"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Image Include="..\..\..\..\..\Users\Buddy365\Pictures\Me\ME.jpg"/>
+        <Image Include="res\images\ME.jpg"/>
     </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">

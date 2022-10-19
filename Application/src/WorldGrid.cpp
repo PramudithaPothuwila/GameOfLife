@@ -55,8 +55,10 @@ namespace GameOfLife
 		return grid;
 	}
 
-	// Added for testing purposes
-	// TODO: Move console rendering to a separate entity
+	void WorldGrid::update_world(bool* newGrid)
+	{
+		grid = newGrid;
+	}
 	
 	void WorldGrid::print()
 	{
