@@ -13,5 +13,5 @@ Currently only Console Interface available.
 - Install CUDA 11.8
 - Clone and build the repository.
 - Download OpenCV 4.6 (opencv-4.6.0-vc14_vc15.exe) from https://github.com/opencv/opencv/releases/tag/4.6.0
-- Extract files and copy opencv_world460.dll in opencv\build\x64\vc15\bin to Application Root
+- Extract files and copy opencv_world460d.dll in opencv\build\x64\vc15\bin to Application Root
 - Run application

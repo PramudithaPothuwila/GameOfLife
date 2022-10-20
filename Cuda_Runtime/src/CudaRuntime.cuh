@@ -1,8 +1,7 @@
 #pragma once
+
 #include <string>
-
 #include "SystemState.h"
-
 
 
 namespace Cuda_Runtime

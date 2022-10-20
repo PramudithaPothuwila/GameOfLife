@@ -63,9 +63,6 @@
     <ClCompile Include="src\WorldGeneration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\logger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Dependencies\include\imgui\imgui_impl_glfw.h">
@@ -122,11 +119,16 @@
     <ClInclude Include="src\WorldGeneration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\logger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Users\Buddy365\Pictures\Me\ME.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\images\ME.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
