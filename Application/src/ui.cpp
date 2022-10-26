@@ -61,7 +61,7 @@ namespace application
             if (ImGui::BeginMenu("Options"))
             {
                 ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen);
-                ImGui::Separator();;
+                ImGui::Separator();
 
                 if (ImGui::MenuItem("Close", NULL, false, p_open != NULL)) p_open = false;
                     
