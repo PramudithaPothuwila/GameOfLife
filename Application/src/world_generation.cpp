@@ -6,10 +6,10 @@ namespace Application
 {
 	void generateRandomWorld()
 	{
-		GRID = new GameOfLife::WorldGrid(GRID_WIDTH);
-		for (int i = 0; i < GRID_WIDTH; i++)
+		GRID = new GameOfLife::WorldGrid(grid_width_);
+		for (int i = 0; i < grid_width_; i++)
 		{
-			for (int j = 0; j < GRID_WIDTH; j++)
+			for (int j = 0; j < grid_width_; j++)
 			{
 				GRID->setCell(i, j, static_cast<bool>(rand() % 2));
 			}
@@ -18,7 +18,7 @@ namespace Application
   
 	void generateFromImage(const std::string &path)
 	{
-		GRID = new GameOfLife::WorldGrid(GRID_WIDTH);
+		GRID = new GameOfLife::WorldGrid(grid_width_);
 		ImageProcessing::generateWorldFromImage(path);
 	}
 }

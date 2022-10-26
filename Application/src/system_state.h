@@ -14,12 +14,12 @@ enum Mode
 	GPU_CUDA
 };
 
-inline State SYSTEM_STATE;
-inline State CPU_STATE;
-inline State GPU_STATE;
+inline State system_state_;
+inline State cpu_state_;
+inline State gpu_state_;
 
 inline Mode MODE;
 
-inline int GRID_WIDTH;
+inline int grid_width_;
 inline int GRID_TYPE; // 0 = randomly generated grid, 1 = grid from image file
 inline GameOfLife::WorldGrid *GRID;
