@@ -186,8 +186,8 @@
         <ClCompile Include="..\Dependencies\include\imgui\imgui_impl_opengl3.cpp"/>
         <ClCompile Include="..\Dependencies\include\imgui\imgui_tables.cpp"/>
         <ClCompile Include="..\Dependencies\include\imgui\imgui_widgets.cpp"/>
-        <ClCompile Include="src\ComputeCPU.cpp"/>
-        <ClCompile Include="src\ConsoleUI.cpp"/>
+        <ClCompile Include="src\compute_cpu.cpp"/>
+        <ClCompile Include="src\console_ui.cpp"/>
         <ClCompile Include="src\main.cpp">
             <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
             <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -262,17 +262,17 @@
       <AdditionalIncludeDirectories>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src;C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\Dependencies\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="src\Application.cpp">
-      <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <Optimization>Disabled</Optimization>
-      <SupportJustMyCode>true</SupportJustMyCode>
-      <AssemblerOutput>NoListing</AssemblerOutput>
-      <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-      <BrowseInformation>false</BrowseInformation>
-      <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-      <CompileAs>Default</CompileAs>
+        <ClCompile Include="src\application.cpp">
+            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+            <Optimization>Disabled</Optimization>
+            <SupportJustMyCode>true</SupportJustMyCode>
+            <AssemblerOutput>NoListing</AssemblerOutput>
+            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+            <BrowseInformation>false</BrowseInformation>
+            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+            <CompileAs>Default</CompileAs>
       <ConformanceMode>true</ConformanceMode>
       <DiagnosticsFormat>Column</DiagnosticsFormat>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
@@ -326,20 +326,20 @@
         <WarningLevel>Level3</WarningLevel>
         <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
         <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-        <IntelJCCErratum>false</IntelJCCErratum>
-        <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-        <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-        <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-        <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-        <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
-        <SDLCheck>true</SDLCheck>
-        <AdditionalIncludeDirectories>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src;C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\Dependencies\include;</AdditionalIncludeDirectories>
-        <LinkCompiled>true</LinkCompiled>
-    </ClCompile>
+            <IntelJCCErratum>false</IntelJCCErratum>
+            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+            <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+            <SDLCheck>true</SDLCheck>
+            <AdditionalIncludeDirectories>C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\GameOfLife\src;C:\Projects\Coding_Projects\HPC_Projects\GameOfLife\Dependencies\include;</AdditionalIncludeDirectories>
+            <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
         <ClCompile Include="src\renderer.cpp"/>
         <ClCompile Include="src\ui.cpp"/>
-        <ClCompile Include="src\WorldGeneration.cpp"/>
-        <ClCompile Include="src\WorldGrid.cpp"/>
+        <ClCompile Include="src\world_generation.cpp"/>
+        <ClCompile Include="src\world_grid.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <ClInclude Include="..\Dependencies\include\imgui\imconfig.h"/>
@@ -351,15 +351,15 @@
         <ClInclude Include="..\Dependencies\include\imgui\imstb_rectpack.h"/>
         <ClInclude Include="..\Dependencies\include\imgui\imstb_textedit.h"/>
         <ClInclude Include="..\Dependencies\include\imgui\imstb_truetype.h"/>
-        <ClInclude Include="src\Application.h"/>
-        <ClInclude Include="src\ComputeCPU.h"/>
-        <ClInclude Include="src\ConsoleUI.h"/>
-        <ClInclude Include="src\ImageProcessing.h"/>
+        <ClInclude Include="src\application.h"/>
+        <ClInclude Include="src\compute_cpu.h"/>
+        <ClInclude Include="src\console_ui.h"/>
+        <ClInclude Include="src\image_processing.h"/>
         <ClInclude Include="src\renderer.h"/>
-        <ClInclude Include="src\SystemState.h"/>
+        <ClInclude Include="src\system_state.h"/>
         <ClInclude Include="src\ui.h"/>
-        <ClInclude Include="src\WorldGeneration.h"/>
-        <ClInclude Include="src\WorldGrid.h"/>
+        <ClInclude Include="src\world_generation.h"/>
+        <ClInclude Include="src\world_grid.h"/>
     </ItemGroup>
     <ItemGroup>
         <None Include="imgui.ini"/>
@@ -370,7 +370,7 @@
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
-        <ClCompile Include="src\ImageProcessing.cpp"/>
+        <ClCompile Include="src\image_processing.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <Image Include="..\..\..\..\..\Users\Buddy365\Pictures\Me\ME.jpg"/>

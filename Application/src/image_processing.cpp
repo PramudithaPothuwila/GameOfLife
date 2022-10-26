@@ -10,8 +10,8 @@ namespace Application
 	void ImageProcessing::generateWorldFromImage(const std::string &path)
 	{
 		cv::Mat image = loadImage(path);
-		const int rows = image.rows < GRID_WIDTH ? image.rows : GRID_WIDTH;
-		const int cols = image.cols < GRID_WIDTH ? image.cols : GRID_WIDTH;
+		const int rows = image.rows < grid_width_ ? image.rows : grid_width_;
+		const int cols = image.cols < grid_width_ ? image.cols : grid_width_;
 		for(int i = 0; i <  rows; i++)
 		{
 			for(int j = 0; j < cols; j++)

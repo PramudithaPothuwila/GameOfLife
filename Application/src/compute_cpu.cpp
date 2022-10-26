@@ -38,13 +38,13 @@ namespace GameOfLife
 
 	ThreadManager::ThreadManager(WorldGrid* world_grid)
 	{
-		CPU_STATE = INIT;
+		cpu_state_ = INIT;
 		init(world_grid);
 	}
 
 	void ThreadManager::init(WorldGrid* _world_grid)
 	{
-		CPU_STATE = RUNNING;
+		cpu_state_ = RUNNING;
 		switch(MODE)
 		{
 		case CPU_SINGLE_THREAD:
@@ -60,7 +60,7 @@ namespace GameOfLife
 	
 	void ThreadManager::run()
 	{
-		while(CPU_STATE == RUNNING)
+		while(cpu_state_ == RUNNING)
 		{
 			const auto threads = new std::thread[processor_count];
 			
@@ -81,7 +81,7 @@ namespace GameOfLife
 
 	void ThreadManager::shutdown() const
 	{
-		CPU_STATE = SHUTDOWN;
+		cpu_state_ = SHUTDOWN;
 		delete world_grid;
 		delete world_buffer;
 	}
