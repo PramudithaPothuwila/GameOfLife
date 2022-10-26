@@ -28,7 +28,7 @@ namespace Application
 	GameOfLife::ThreadManager *thread_manager;
 	int init()
 	{
-		SYSTEM_STATE = INIT;
+		system_state_ = INIT;
 		ConsoleUI::printMenu();
 		return 0;
 	}
@@ -51,7 +51,7 @@ namespace Application
 			}
 		case GPU_CUDA:
 			{
-				auto *compute_gpu = new Cuda_Runtime::ComputeGPU(GRID_WIDTH, GRID->getGrid());
+				auto *compute_gpu = new Cuda_Runtime::ComputeGPU(grid_width_, GRID->getGrid());
 				compute_gpu->init();
 				compute_gpu->run();
 				break;

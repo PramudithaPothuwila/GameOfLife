@@ -6,7 +6,7 @@ namespace Application
 	void ConsoleUI::printMenu()
 	{
 		std::cout << "Enter grid size: ";
-		std::cin >> GRID_WIDTH;
+		std::cin >> grid_width_;
 		std::cout << "Available modes of Operation: " << std::endl;
 		std::cout << "1. CPU single thread" << std::endl;
 		std::cout << "2. CPU multi thread" << std::endl;

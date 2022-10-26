@@ -46,7 +46,7 @@
 
  	ComputeGPU::ComputeGPU(int world_width, bool *start_world_frame)
  	{
- 		GPU_STATE = INIT;
+ 		gpu_state_ = INIT;
  		this->world_width = world_width;
  		this->host_world_buffer = start_world_frame;
  	}
@@ -61,12 +61,12 @@
  		//Copy world buffer to GPU device
  		cudaMemcpy(primary_device_world_buffer, host_world_buffer, buffer_size,cudaMemcpyHostToDevice);
 
-        GPU_STATE = RUNNING;
+        gpu_state_ = RUNNING;
  	}
  	
  	void ComputeGPU::run()
  	{
- 		while(GPU_STATE == RUNNING)
+ 		while(gpu_state_ == RUNNING)
  		{
  			compute <<< world_width, world_width >>>(primary_device_world_buffer, secondary_device_world_buffer, world_width);
  			cudaMemcpy(host_world_buffer, secondary_device_world_buffer, buffer_size,cudaMemcpyDeviceToHost);
@@ -81,6 +81,6 @@
  		free(host_world_buffer);
  		cudaFree(primary_device_world_buffer);
  		cudaFree(secondary_device_world_buffer);
-        GPU_STATE = SHUTDOWN;
+        gpu_state_ = SHUTDOWN;
  	}
 }	
