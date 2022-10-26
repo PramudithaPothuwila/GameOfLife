@@ -1,7 +1,7 @@
 #pragma once
 
-#include "WorldGrid.h"
-#include "Application.h"
+#include "world_grid.h"
+#include "application.h"
 #include <thread>
 #include <iostream>
 #include <vector>
@@ -12,21 +12,21 @@ enum Cell_State
 	ALIVE
 };
 
-namespace GameOfLife
+namespace game_of_life
 {
 	
 	class ThreadManager
 	{
 	private:
-		WorldGrid* world_grid;
-		WorldGrid* world_buffer	;
+		WorldGrid* world_grid{};
+		WorldGrid* world_buffer{};
 	public:
 		ThreadManager(WorldGrid *world_grid);
 		~ThreadManager();
-		void init(WorldGrid* world_grid);
-		void run();
-		void shutdown() const;
+		void Init(WorldGrid* world_grid);
+		void Run();
+		void Shutdown() const;
 	};
 	
-	void ThreadWork(WorldGrid* world_grid, WorldGrid* world_buffer,int starting_point);
+	void thread_work(const WorldGrid* world_grid, const WorldGrid* world_buffer,int starting_point);
 }

@@ -1,12 +1,11 @@
 ﻿#pragma once
-#include <iostream>
-#include "SystemState.h"
 
-namespace Application
+
+namespace application
 {
 	class ConsoleUI
 	{
 	public:
-		static void printMenu();	
+		static void PrintMenu();	
 	};
 }

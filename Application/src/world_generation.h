@@ -1,10 +1,9 @@
 #pragma once
-#include <cstdlib>
-#include "ImageProcessing.h"
-#include "SystemState.h"
+#include <string>
 
-namespace Application
+
+namespace application
 {
-	void generateRandomWorld();
-	void generateFromImage(const std::string &path);
+	void generate_random_world();
+	void generate_from_image(const std::string &path);
 }

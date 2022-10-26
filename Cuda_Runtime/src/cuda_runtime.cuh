@@ -1,23 +1,19 @@
 #pragma once
 
-#include <string>
-#include "SystemState.h"
-
-
-namespace Cuda_Runtime
+namespace cuda_runtime
 {
-	class ComputeGPU
+	class ComputeGpu
 	{
-		bool* host_world_buffer;
-		bool* primary_device_world_buffer;
-		bool* secondary_device_world_buffer;
-		int world_width;
-		int buffer_size;
+		bool* m_host_world_buffer;
+		bool* m_primary_device_world_buffer;
+		bool* m_secondary_device_world_buffer;
+		int m_world_width;
+		int m_buffer_size;
 	public:
-		ComputeGPU(int world_width, bool* start_world_frame);
-		void init();
-		void run();
-		void shutdown();
+		ComputeGpu(int world_width, bool* start_world_frame);
+		void Init();
+		void Run();
+		void Shutdown() const;
 	};
 	
 }

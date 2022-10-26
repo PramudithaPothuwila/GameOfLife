@@ -1,43 +1,43 @@
-﻿#include "WorldGrid.h"
+﻿#include "world_grid.h"
 #include <cmath>
 #include <iostream>
 #include <thread>
 
-namespace GameOfLife
+namespace game_of_life
 {
-	WorldGrid::WorldGrid(int width)
+	WorldGrid::WorldGrid(const int width)
 	{
-		gridWidth = width;
-		grid = new bool[width * width];
+		m_grid_width = width;
+		m_grid = new bool[width * width];
 		for (int i = 0; i < width; i++)
 		{
 			for (int j = 0; j < width; j++)
 			{
-				setCell(i, j, false);
+				SetCell(i, j, false);
 			}
 		}
 	}
 
-	int WorldGrid::getWorldSize()
+	int WorldGrid::GetWorldSize() const
 	{
-		return gridWidth*gridWidth;
+		return m_grid_width*m_grid_width;
 	}
 
 	WorldGrid::~WorldGrid()
 	{
-		delete[] grid;
+		delete[] m_grid;
 	}
 
-	void WorldGrid::setCell(const int x,const int y,const bool value)
+	void WorldGrid::SetCell(const int x,const int y,const bool value) const
 	{
-		grid[x * gridWidth + y] = value;
+		m_grid[x * m_grid_width + y] = value;
 	}
 
-	bool WorldGrid::getCell(const int x,const int y)
+	bool WorldGrid::GetCell(const int x,const int y) const
 	{
 		try
 		{
-			return grid[x * gridWidth + y];
+			return m_grid[x * m_grid_width + y];
 		}
 		catch(...)
 		{
@@ -45,29 +45,29 @@ namespace GameOfLife
 		}
 	}
 
-	int WorldGrid::getWorldWidth()
+	int WorldGrid::GetWorldWidth() const
 	{
-		return gridWidth;
+		return m_grid_width;
 	}
 
-	bool* WorldGrid::getGrid()
+	bool* WorldGrid::GetGrid() const
 	{
-		return grid;
+		return m_grid;
 	}
 
-	void WorldGrid::update_world(bool* newGrid)
+	void WorldGrid::Update_World(bool* new_grid)
 	{
-		grid = newGrid;
+		m_grid = new_grid;
 	}
 	
-	void WorldGrid::print()
+	void WorldGrid::Print() const
 	{
 		std::string frame;
-		for (int i = 0; i < getWorldWidth(); i++)
+		for (int i = 0; i < GetWorldWidth(); i++)
 		{
-			for (int j = 0; j < getWorldWidth(); j++)
+			for (int j = 0; j < GetWorldWidth(); j++)
 			{
-				std::string cell = getCell(i, j) ? "X" : " ";
+				std::string cell = GetCell(i, j) ? "X" : " ";
 				frame.append(cell);
 				frame.append(" ");
 			}

@@ -1,9 +1,9 @@
 #pragma once
-#include "WorldGrid.h"
+#include "world_grid.h"
 
 enum State
 {
-	INIT,
+	READY,
 	RUNNING,
 	SHUTDOWN
 };
@@ -14,12 +14,12 @@ enum Mode
 	GPU_CUDA
 };
 
-inline State system_state_;
-inline State cpu_state_;
-inline State gpu_state_;
+inline State System_state_G;
+inline State Cpu_state_G;
+inline State Gpu_state_G;
 
-inline Mode MODE;
+inline Mode Mode_G;
 
-inline int grid_width_;
-inline int GRID_TYPE; // 0 = randomly generated grid, 1 = grid from image file
-inline GameOfLife::WorldGrid *GRID;
+inline int Grid_width_G;
+inline int Grid_type_G; // 0 = randomly generated grid, 1 = grid from image file
+inline game_of_life::WorldGrid *Grid_G;
