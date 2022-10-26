@@ -2,8 +2,8 @@
 
 int main()
 {
-	Application::init();
-	Application::run();
-	Application::shutdown();
+	application::init();
+	application::run();
+	application::shutdown();
 	return 0;
 }

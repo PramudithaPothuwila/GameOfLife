@@ -1,11 +1,11 @@
 #include "Application.h"
 
-#include "ComputeCPU.h"
-#include "CudaRuntime.cuh"
-#include "SystemState.h"
+#include "compute_cpu.h"
+#include "cuda_runtime.cuh"
+#include "system_state.h"
 
 
-namespace Application
+namespace application
 {
 	// int init()
 	// {
@@ -25,35 +25,35 @@ namespace Application
 	// 	return 0;
 	// }
 
-	GameOfLife::ThreadManager *thread_manager;
+	game_of_life::ThreadManager *thread_manager;
 	int init()
 	{
-		system_state_ = INIT;
-		ConsoleUI::printMenu();
+		System_state_G = READY;
+		ConsoleUI::PrintMenu();
 		return 0;
 	}
 	
 	int run()
 	{
-		switch(MODE)
+		switch(Mode_G)
 		{
 		case CPU_SINGLE_THREAD:
 			{
-				thread_manager = new GameOfLife::ThreadManager(GRID);
-				thread_manager->run();
+				thread_manager = new game_of_life::ThreadManager(Grid_G);
+				thread_manager->Run();
 				break;
 			}
 		case CPU_MULTI_THREAD:
 			{
-				thread_manager = new GameOfLife::ThreadManager(GRID);
-				thread_manager->run();
+				thread_manager = new game_of_life::ThreadManager(Grid_G);
+				thread_manager->Run();
 				break;
 			}
 		case GPU_CUDA:
 			{
-				auto *compute_gpu = new Cuda_Runtime::ComputeGPU(grid_width_, GRID->getGrid());
-				compute_gpu->init();
-				compute_gpu->run();
+				auto *compute_gpu = new cuda_runtime::ComputeGpu(Grid_width_G, Grid_G->GetGrid());
+				compute_gpu->Init();
+				compute_gpu->Run();
 				break;
 			}
 		}

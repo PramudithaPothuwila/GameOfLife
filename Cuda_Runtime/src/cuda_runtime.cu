@@ -1,18 +1,18 @@
-#include "CudaRuntime.cuh"
+#include "cuda_runtime.cuh"
+#include "system_state.h"
 
- #include <cstdlib>
- #include <iostream>
- #include <string>
- #include <thread>
+#include <cstdlib>
+#include <iostream>
+#include <thread>
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 
 
- namespace Cuda_Runtime
+namespace cuda_runtime
  {
  	__global__ void compute(const bool *primary_device_buffer, bool *secondary_device_buffer, int world_width)
  	{
-        int index = blockIdx.x * blockDim.x +threadIdx.x;
+	    const int index = blockIdx.x * blockDim.x +threadIdx.x;
  		const int x_cord = index % world_width;
  		const int y_cord = index / world_width;
  		int alive_neighbours = 0;
@@ -44,43 +44,43 @@
  		}
  	}
 
- 	ComputeGPU::ComputeGPU(int world_width, bool *start_world_frame)
+ 	ComputeGpu::ComputeGpu(const int world_width, bool *start_world_frame)
  	{
- 		gpu_state_ = INIT;
- 		this->world_width = world_width;
- 		this->host_world_buffer = start_world_frame;
+ 		Gpu_state_G = READY;
+ 		this->m_world_width = world_width;
+ 		this->m_host_world_buffer = start_world_frame;
  	}
 
- 	void ComputeGPU::init()
+ 	void ComputeGpu::Init()
  	{
- 		buffer_size = world_width * world_width * sizeof(bool);
+ 		m_buffer_size = m_world_width * m_world_width * sizeof(bool);
  		//GPU device memory allocation
- 		cudaMalloc(&primary_device_world_buffer, buffer_size);
- 		cudaMalloc(&secondary_device_world_buffer, buffer_size);
+ 		cudaMalloc(&m_primary_device_world_buffer, m_buffer_size);
+ 		cudaMalloc(&m_secondary_device_world_buffer, m_buffer_size);
 
  		//Copy world buffer to GPU device
- 		cudaMemcpy(primary_device_world_buffer, host_world_buffer, buffer_size,cudaMemcpyHostToDevice);
+ 		cudaMemcpy(m_primary_device_world_buffer, m_host_world_buffer, m_buffer_size,cudaMemcpyHostToDevice);
 
-        gpu_state_ = RUNNING;
+        Gpu_state_G = RUNNING;
  	}
  	
- 	void ComputeGPU::run()
+ 	void ComputeGpu::Run()
  	{
- 		while(gpu_state_ == RUNNING)
+ 		while(Gpu_state_G == RUNNING)
  		{
- 			compute <<< world_width, world_width >>>(primary_device_world_buffer, secondary_device_world_buffer, world_width);
- 			cudaMemcpy(host_world_buffer, secondary_device_world_buffer, buffer_size,cudaMemcpyDeviceToHost);
- 			cudaMemcpy(primary_device_world_buffer, secondary_device_world_buffer, buffer_size,cudaMemcpyDeviceToDevice);
- 			GRID->update_world(host_world_buffer);
- 			GRID->print();
+ 			compute <<< m_world_width, m_world_width >>>(m_primary_device_world_buffer, m_secondary_device_world_buffer, m_world_width);
+ 			cudaMemcpy(m_host_world_buffer, m_secondary_device_world_buffer, m_buffer_size,cudaMemcpyDeviceToHost);
+ 			cudaMemcpy(m_primary_device_world_buffer, m_secondary_device_world_buffer, m_buffer_size,cudaMemcpyDeviceToDevice);
+ 			Grid_G->Update_World(m_host_world_buffer);
+ 			Grid_G->Print();
  		}
  	}
 
- 	void ComputeGPU::shutdown()
- 	{
- 		free(host_world_buffer);
- 		cudaFree(primary_device_world_buffer);
- 		cudaFree(secondary_device_world_buffer);
-        gpu_state_ = SHUTDOWN;
+ 	void ComputeGpu::Shutdown() const
+    {
+ 		free(m_host_world_buffer);
+ 		cudaFree(m_primary_device_world_buffer);
+ 		cudaFree(m_secondary_device_world_buffer);
+        Gpu_state_G = SHUTDOWN;
  	}
 }	

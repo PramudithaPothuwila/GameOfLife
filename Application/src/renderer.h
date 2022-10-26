@@ -7,7 +7,7 @@
 #include "renderer.h"
 #include "ui.h"
 
-namespace Application
+namespace application
 {
 	class Renderer
 	{

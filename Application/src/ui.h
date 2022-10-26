@@ -2,7 +2,7 @@
 
 #include "imgui/imgui.h"
 
-namespace Application
+namespace application
 {
 	class UI
 	{

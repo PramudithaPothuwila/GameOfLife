@@ -2,7 +2,7 @@
 #include "renderer.h"
 #include <iostream>
 
-namespace Application
+namespace application
 {
     void Renderer_OpenGl::error_callback(int error, const char* description)
     {

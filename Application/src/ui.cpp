@@ -1,7 +1,7 @@
 #include "ui.h"
 
 
-namespace Application
+namespace application
 {
 	void UI::displayUI()
 	{
