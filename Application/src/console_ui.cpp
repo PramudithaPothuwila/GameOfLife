@@ -51,7 +51,8 @@ namespace application
 		case 2:
 			std::cout << "Enter path for image for world generation:";
 			std::string image_path;
-			std::cin >> image_path;
+			std::cin.ignore();
+			std::getline(std::cin, image_path);
 			generate_from_image(image_path);
 			break;
 		}

@@ -372,10 +372,6 @@
     <ItemGroup>
         <ClCompile Include="src\image_processing.cpp"/>
     </ItemGroup>
-    <ItemGroup>
-        <Image Include="..\..\..\..\..\Users\Buddy365\Pictures\Me\ME.jpg"/>
-        <Image Include="res\images\ME.jpg"/>
-    </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">
     </ImportGroup>
