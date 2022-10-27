@@ -2,6 +2,8 @@
 
 ## Conway's Game of Life implemented with C++ VS 2022 and CUDA 11.8
 
+#### Current Version V2.3.1
+
 ### Mode of Operation
   - CPU Single Thread
   - CPU Multi Thread
