@@ -1,12 +1,15 @@
-﻿#include "ConsoleUI.h"
-#include "WorldGeneration.h"
+﻿#include <iostream>
 
-namespace Application
+#include "console_ui.h"
+#include "world_generation.h"
+#include "system_state.h"
+
+namespace application
 {
-	void ConsoleUI::printMenu()
+	void ConsoleUI::PrintMenu()
 	{
 		std::cout << "Enter grid size: ";
-		std::cin >> GRID_WIDTH;
+		std::cin >> Grid_width_G;
 		std::cout << "Available modes of Operation: " << std::endl;
 		std::cout << "1. CPU single thread" << std::endl;
 		std::cout << "2. CPU multi thread" << std::endl;
@@ -17,19 +20,19 @@ namespace Application
 		switch(mode_input)
 		{
 		case 1:
-			MODE = CPU_SINGLE_THREAD;
+			Mode_G = CPU_SINGLE_THREAD;
 			std::cout << "CPU single thread mode selected" << std::endl;
 			break;
 		case 2:
-			MODE = CPU_MULTI_THREAD;
+			Mode_G = CPU_MULTI_THREAD;
 			std::cout << "CPU multi thread mode selected" << std::endl;
 			break;
 		case 3:
-			MODE = GPU_CUDA;
+			Mode_G = GPU_CUDA;
 			std::cout << "GPU CUDA mode selected" << std::endl;
 			break;
 		default:
-			MODE = CPU_SINGLE_THREAD;
+			Mode_G = CPU_SINGLE_THREAD;
 			std::cout << "Invalid mode selected, defaulting to CPU single thread mode" << std::endl;
 			break;
 		}
@@ -38,18 +41,19 @@ namespace Application
 		std::cout << "1. Generate random grid" << std::endl;
 		std::cout << "2. Generate grid from image file" << std::endl;
 		std::cout << "Enter grid type: ";
-		std::cin >> GRID_TYPE;
-		switch(GRID_TYPE)
+		std::cin >> Grid_type_G;
+		switch(Grid_type_G)
 		{
 		case 1:
 			std::cout << "World grid is randomly generated" << std::endl;
-			generateRandomWorld();
+			generate_random_world();
 			break;
 		case 2:
 			std::cout << "Enter path for image for world generation:";
 			std::string image_path;
-			std::cin >> image_path;
-			generateFromImage(image_path);
+			std::cin.ignore();
+			std::getline(std::cin, image_path);
+			generate_from_image(image_path);
 			break;
 		}
 	}

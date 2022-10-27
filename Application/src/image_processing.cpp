@@ -1,34 +1,33 @@
-﻿#include "ImageProcessing.h"
+﻿#include "image_processing.h"
+#include "system_state.h"
+
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
-#include "SystemState.h"
-#include "WorldGrid.h"
-
-namespace Application
+namespace application
 {
-	void ImageProcessing::generateWorldFromImage(const std::string &path)
+	void ImageProcessing::GenerateWorldFromImage(const std::string &path)
 	{
-		cv::Mat image = loadImage(path);
-		const int rows = image.rows < GRID_WIDTH ? image.rows : GRID_WIDTH;
-		const int cols = image.cols < GRID_WIDTH ? image.cols : GRID_WIDTH;
+		cv::Mat image = LoadImage(path);
+		const int rows = image.rows < Grid_width_G ? image.rows : Grid_width_G;
+		const int cols = image.cols < Grid_width_G ? image.cols : Grid_width_G;
 		for(int i = 0; i <  rows; i++)
 		{
 			for(int j = 0; j < cols; j++)
 			{
 				if(image.at<uchar>(i, j) == 255)
 				{
-					GRID->setCell(i, j, true);
+					Grid_G->SetCell(i, j, true);
 				}
 				else
 				{
-					GRID->setCell(i, j, false);
+					Grid_G->SetCell(i, j, false);
 				}
 			}
 		}
 	}
 
-	cv::Mat ImageProcessing::loadImage(const std::string& file)
+	cv::Mat ImageProcessing::LoadImage(const std::string& file)
 	{
 		cv::Mat image = imread(file, cv::IMREAD_REDUCED_GRAYSCALE_8);
 		std::cout << image.cols<< " " << image.rows << std::endl;
