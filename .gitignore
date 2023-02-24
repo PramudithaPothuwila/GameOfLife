@@ -19,3 +19,8 @@
 /GameOfLife/Debug/
 /Application/Debug/
 /packages/
+*.log
+*.tlog
+*.txt
+*.deps
+*.cache
